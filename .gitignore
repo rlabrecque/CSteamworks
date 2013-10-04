@@ -1,0 +1,19 @@
+# Visual Studio
+[Rr]elease/
+[Dd]ebug/
+ipch/
+*.csproj
+*.sln
+*.userprefs
+*.suo
+*.*sdf
+
+# OSX
+.DS_Store
+
+# Autogen
+wrapper/
+
+# User Supplied
+steam/
+redistributable_bin/
