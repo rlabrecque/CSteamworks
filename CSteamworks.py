@@ -31,9 +31,9 @@ except OSError:
 
 g_methodnames = []
 
-for file in g_files:
-    print('Opening: ' + file)
-    with open('steam/' + file, 'r') as f:
+for filename in g_files:
+    print('Opening: ' + filename)
+    with open('steam/' + filename, 'r') as f:
         output = []
         depth = 0
         iface = None
@@ -148,7 +148,7 @@ for file in g_files:
                                 typelessargs += token
                     typelessargs = typelessargs.rstrip()
 
-                    if returnvalue.strip() == 'CSteamID':
+                    if returnvalue.strip() == 'CSteamID':  # Can not return a class with C ABI
                         returnvalue = 'uint64 '
 
                     output.append('SB_API ' + returnvalue + methodname + '(' + args + ') {')
@@ -169,7 +169,7 @@ for file in g_files:
                     iface = None
 
         if output:
-            with open('wrapper/' + os.path.splitext(file)[0] + '.cpp', 'w') as out:
+            with open('wrapper/' + os.path.splitext(filename)[0] + '.cpp', 'w') as out:
                 print(CPP_HEADER, file=out)
                 for line in output:
                     print(line, file=out)
