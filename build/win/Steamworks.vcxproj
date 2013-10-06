@@ -100,8 +100,21 @@
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
     </ClCompile>
     <ClCompile Include="..\..\src\steam_api.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamapps.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamclient.cpp" />
     <ClCompile Include="..\..\wrapper\isteamfriends.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamgameserver.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamgameserverstats.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamhttp.cpp" />
+    <ClCompile Include="..\..\wrapper\isteammatchmaking.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamnetworking.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamps3overlayrenderer.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamremotestorage.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamscreenshots.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamunifiedmessages.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamuser.cpp" />
     <ClCompile Include="..\..\wrapper\isteamuserstats.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamutils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\steam\isteamapps.h" />
