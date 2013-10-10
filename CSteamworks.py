@@ -15,10 +15,12 @@ CPP_HEADER = """
 
 #include "steam_gameserver.h" // Includes steam_api internally
 
-#ifdef _WIN32
-#  define SB_API extern "C"  __declspec( dllexport )
+#if defined( _WIN32 )
+#define SB_API extern "C"  __declspec( dllexport )
+#elif defined( GNUC )
+#define SB_API extern "C" __attribute__ ((visibility ("default")))
 #else
-#  define SB_API extern "C"
+#define SB_API extern "C"
 #endif
 """[1:]
 
@@ -110,7 +112,7 @@ for filename in g_files:
                             continue
 
                         if state == 0:  # Return Value
-                            if token[0] == '*':
+                            if token.startswith('*'):
                                 returnvalue += '*'
                                 state = 1
                             elif token.find('(') == -1:
@@ -119,7 +121,7 @@ for filename in g_files:
                                 state = 1
 
                         if state == 1:  # Method Name
-                            if token[0] == '*':
+                            if token.startswith('*'):
                                 token = token[1:]
                             realmethodname = token.split('(', 1)[0]
                             methodname = iface + '_' + realmethodname
@@ -138,7 +140,7 @@ for filename in g_files:
                                 continue
 
                         if state == 2:  # Args
-                            if token[0] == ')':
+                            if token.startswith(')'):
                                 state = 3
                             elif token.endswith(')'):  # Edge case in SetGameData and GetAvailableVoice
                                 args += token[:-1]
@@ -163,9 +165,9 @@ for filename in g_files:
                             if token == '0':  # Like f( nChannel = 0 )
                                 token = argssplitted[i - 2]
 
-                            if token[1] == '*':
+                            if token.startswith('**'):
                                 typelessargs += token[2:] + ' '
-                            elif token[0] == '*':
+                            elif token.startswith('*'):
                                 typelessargs += token[1:] + ' '
                             elif token[-1] == ',':
                                 typelessargs += token + ' '

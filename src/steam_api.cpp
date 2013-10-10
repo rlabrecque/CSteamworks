@@ -11,10 +11,12 @@
 #include "steam_gameserver.h"
 #include "steamencryptedappticket.h"
 
-#ifdef _WIN32
-#  define SB_API extern "C"  __declspec( dllexport )
+#if defined( _WIN32 )
+#define SB_API extern "C"  __declspec( dllexport )
+#elif defined( GNUC )
+#define SB_API extern "C" __attribute__ ((visibility ("default")))
 #else
-#  define SB_API extern "C"
+#define SB_API extern "C"
 #endif
 
 /**********************************************************
