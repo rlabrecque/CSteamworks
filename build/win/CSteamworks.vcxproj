@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0B84CB63-3948-4D0F-80CE-7A52E2D3C6B1}</ProjectGuid>
-    <RootNamespace>Steamworks</RootNamespace>
+    <RootNamespace>CSteamworks</RootNamespace>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
