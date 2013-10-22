@@ -22,11 +22,15 @@ CPP_HEADER = """
 #else
 #define SB_API extern "C"
 #endif
+
+// A few functions return CSteamID which can not be done when using extern "C"
+// We could slam it directly to uint64, but that doesn't give other wrappers the info they require.
+typedef uint64 SteamID_t;
 """[1:]
 
 g_files = [f for f in os.listdir('steam') if os.path.isfile(os.path.join('steam', f))]
 
-# We don't currently support the following intefaces because they doesn't provide a factory of their own.
+# We don't currently support the following intefaces because they don't provide a factory of their own.
 # You are expected to call GetISteamGeneric to get them. That's a little too much for this script at this point.
 # They are extremely small and rarely used interfaces, It might just be better to do it manually for them.
 if 'isteamappticket.h' in g_files:
@@ -178,7 +182,7 @@ for filename in g_files:
                     bReturnsCSteamID = False
                     if returnvalue.strip() == 'CSteamID':  # Can not return a class with C ABI
                         bReturnsCSteamID = True
-                        returnvalue = 'uint64 '  # This actually causes an issue when trying to create a wrapper for the wrapper
+                        returnvalue = 'SteamID_t '  # This actually causes an issue when trying to create a wrapper for the wrapper
 
                     output.append('SB_API ' + returnvalue + methodname + '(' + args + ') {')
                     if returnvalue.strip() == 'void':
