@@ -8,6 +8,10 @@ ipch/
 *.suo
 *.*sdf
 
+# Linux
+*.so
+obj/
+
 # OSX
 .DS_Store
 
