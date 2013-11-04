@@ -29,4 +29,4 @@ Limitations
 -----------
 
 * _CSteamworks_ was not intended to be used directly from C/C++ therefore it does not provide header files.
-* _CSteamworks_ does not currently support ISteamAppTicket or ISteamGameCoordinator
+* _CSteamworks_ does not currently support ISteamAppTicket or ISteamGameCoordinator as they do not provide a global interface.
