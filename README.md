@@ -20,10 +20,10 @@ Building
 To use _CSteamworks_ you must be a Steamworks developer.
 
 * Download the Latest Steamworks SDK from the Steamworks Partner site.
-* Copy 'redistibutable_bin/' over from the Steamworks SDK into the root of this folder.
-* Copy the 'steam/' folder located in 'public/' over from the Steamworks SDK into the root of this folder.
-* Run CSteamworks.py which will generate the wrapper files into 'wrapper/'
-* Use the Makefile/Project files in 'build/' to compile your dynamic library.
+* Copy `redistibutable_bin/` over from the Steamworks SDK into the root of this folder.
+* Copy the `steam/` folder located in `public/` over from the Steamworks SDK into the root of this folder.
+* Run CSteamworks.py which will generate the wrapper files into `wrapper/`
+* Use the Makefile/Project files in `build/` to compile the dynamic libraries.
 
 Limitations
 -----------
