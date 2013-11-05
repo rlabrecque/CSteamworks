@@ -14,6 +14,7 @@ obj/
 
 # OSX
 .DS_Store
+xcuserdata/
 
 # Autogen
 wrapper/
