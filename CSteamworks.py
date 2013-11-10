@@ -93,7 +93,7 @@ for filename in g_files:
 
             pos = line.find('class ISteam')
             if pos != -1:
-                if line.find(';') != -1:
+                if ';' in line:
                     continue
                 iface = line[pos + len('class '):].split()[0]
                 ifacedepth = depth
@@ -109,7 +109,7 @@ for filename in g_files:
             if iface:
                 if line.startswith('#'):
                     output.append(line.strip() + '')
-                elif line.find('virtual') != -1 and line.find(' = 0;') != -1:
+                elif 'virtual' in line and ' = 0;' in line:
                     splitline = line[len('virtual '):].split()
                     state = 0
                     returnvalue = ''
@@ -193,9 +193,9 @@ for filename in g_files:
                     output.append('}')
                     output.append('')
 
-            if line.find('{') != -1:
+            if '{' in line:
                 depth += 1
-            if line.find('}') != -1:
+            if '}' in line:
                 depth -= 1
                 if iface and depth == ifacedepth:
                     iface = None
