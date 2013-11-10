@@ -38,6 +38,11 @@ if 'isteamappticket.h' in g_files:
 if 'isteamgamecoordinator.h' in g_files:
     g_files.remove('isteamgamecoordinator.h')
 
+# ISteamUGC is missing it's factory function in the headers, SteamUGC() exists in the dll but not the header...
+# SteamClient()->GetISteamUGC() Exists, we'll use that if Valve doesn't add in SteamUGC() soon.
+if 'isteamugc.h' in g_files:
+    g_files.remove('isteamugc.h')
+
 try:
     os.makedirs('wrapper/')
 except OSError:
@@ -146,13 +151,9 @@ for filename in g_files:
                         if state == 2:  # Args
                             if token.startswith(')'):
                                 state = 3
-                            elif token.endswith(')'):  # Edge case in SetGameData and GetAvailableVoice
+                            elif token.endswith(')'):  # Edge case in GetAvailableVoice
                                 args += token[:-1]
                                 state = 3
-                            elif token.strip() == '*,':  # Edge case in GetClanChatMessage
-                                args += '*peChatEntryType, '
-                            elif token.strip() == '*':  # Edge case in GetClanChatMessage
-                                args += '*pSteamIDChatter '
                             else:
                                 args += token + ' '
 
@@ -185,9 +186,7 @@ for filename in g_files:
                         returnvalue = 'SteamID_t '  # See CPP_HEADER for more details
 
                     output.append('SB_API ' + returnvalue + methodname + '(' + args + ') {')
-                    if returnvalue.strip() == 'void':
-                        output.append('\t' + iface[1:] + '()->' + realmethodname + '(' + typelessargs + ');')
-                    elif bReturnsCSteamID:
+                    if bReturnsCSteamID:
                         output.append('\treturn ' + iface[1:] + '()->' + realmethodname + '(' + typelessargs + ').ConvertToUint64();')
                     else:
                         output.append('\treturn ' + iface[1:] + '()->' + realmethodname + '(' + typelessargs + ');')
