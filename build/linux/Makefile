@@ -1,21 +1,23 @@
 OBJDIR := obj
-CXX = g++
-CPPFLAGS = -fPIC -m32 -I"../../steam"
+CXX := g++
+CPPFLAGS := -fPIC -m32 -I"../../steam"
 
-CPP_FILES := $(wildcard ../../wrapper/*.cpp)
-OBJ_FILES := $(patsubst ../../wrapper/%.cpp,$(OBJDIR)/%.o,$(CPP_FILES))
+CPP_FILES1 := $(wildcard ../../src/*.cpp)
+OBJ_FILES1 := $(patsubst ../../src/%.cpp,$(OBJDIR)/%.o,$(CPP_FILES1))
+CPP_FILES2 := $(wildcard ../../wrapper/*.cpp)
+OBJ_FILES2 := $(patsubst ../../wrapper/%.cpp,$(OBJDIR)/%.o,$(CPP_FILES2))
 
-$(OBJDIR)/%.o: ../../wrapper/%.cpp
+$(OBJDIR)/%.o:  ../../src/%.cpp
+	mkdir -p $(OBJDIR)
 	$(CXX) $(CPPFLAGS) -c -o $@ $<
 
-all: $(OBJ_FILES)
-	$(CXX) $(CPPFLAGS) -shared $^ -o libCSteamworks.so
-
-$(OBJ_FILES): | $(OBJDIR)
-
-$(OBJDIR):
+$(OBJDIR)/%.o:  ../../wrapper/%.cpp
 	mkdir -p $(OBJDIR)
+	$(CXX) $(CPPFLAGS) -c -o $@ $<
+
+all: $(OBJ_FILES1) $(OBJ_FILES2)
+	$(CXX) $(CPPFLAGS) -Wl,--no-as-needed -L../../redistributable_bin/linux32 -lsteam_api -shared $^ -o libCSteamworks.so
 
 clean:
 	rm -rf ./$(OBJDIR)/
-	rm libCSteamworks.so
+	rm -f libCSteamworks.so
