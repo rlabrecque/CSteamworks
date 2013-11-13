@@ -23,6 +23,7 @@
 		20087EA91819AD38000D34B5 /* isteamuserstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E9A1819AD38000D34B5 /* isteamuserstats.cpp */; };
 		20087EAA1819AD38000D34B5 /* isteamutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E9B1819AD38000D34B5 /* isteamutils.cpp */; };
 		20087EE61819AD97000D34B5 /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20087EE51819AD97000D34B5 /* libsteam_api.dylib */; };
+		2052CDDD183321D900F52B16 /* steam_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2052CDDC183321D900F52B16 /* steam_api.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		20087E9A1819AD38000D34B5 /* isteamuserstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuserstats.cpp; sourceTree = "<group>"; };
 		20087E9B1819AD38000D34B5 /* isteamutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamutils.cpp; sourceTree = "<group>"; };
 		20087EE51819AD97000D34B5 /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = ../../redistributable_bin/osx32/libsteam_api.dylib; sourceTree = "<group>"; };
+		2052CDDC183321D900F52B16 /* steam_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = steam_api.cpp; path = ../../src/steam_api.cpp; sourceTree = "<group>"; };
 		6A3F7F7E10AC146D00948A73 /* CSteamworks.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSteamworks.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3F7F7F10AC146D00948A73 /* CSteamworks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSteamworks-Info.plist"; sourceTree = "<group>"; };
 		8D01CCD10486CAD60068D4B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2052CDDC183321D900F52B16 /* steam_api.cpp */,
 				20087EE51819AD97000D34B5 /* libsteam_api.dylib */,
 				20087E8C1819AD38000D34B5 /* wrapper */,
 			);
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20087EA61819AD38000D34B5 /* isteamscreenshots.cpp in Sources */,
+				2052CDDD183321D900F52B16 /* steam_api.cpp in Sources */,
 				20087EA31819AD38000D34B5 /* isteamnetworking.cpp in Sources */,
 				20087EA11819AD38000D34B5 /* isteamhttp.cpp in Sources */,
 				20087EA01819AD38000D34B5 /* isteamgameserverstats.cpp in Sources */,
