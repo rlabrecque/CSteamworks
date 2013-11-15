@@ -57,6 +57,9 @@
     <ClCompile Include="..\..\wrapper\isteamscreenshots.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamugc.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\wrapper\isteamunifiedmessages.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
@@ -69,6 +72,11 @@
     <ClCompile Include="..\..\wrapper\isteamutils.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\redistributable_bin\steam_api.lib">
+      <Filter>Resource Files</Filter>
+    </Library>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\steam\isteamapps.h">
@@ -116,6 +124,9 @@
     <ClInclude Include="..\..\steam\isteamscreenshots.h">
       <Filter>Steam</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\steam\isteamugc.h">
+      <Filter>Steam</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\steam\isteamunifiedmessages.h">
       <Filter>Steam</Filter>
     </ClInclude>
@@ -155,10 +166,5 @@
     <ClInclude Include="..\..\steam\steamuniverse.h">
       <Filter>Steam</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\redistributable_bin\steam_api.lib">
-      <Filter>Resource Files</Filter>
-    </Library>
   </ItemGroup>
 </Project>

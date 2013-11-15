@@ -38,11 +38,6 @@ if 'isteamappticket.h' in g_files:
 if 'isteamgamecoordinator.h' in g_files:
     g_files.remove('isteamgamecoordinator.h')
 
-# ISteamUGC is missing it's factory function in the headers, SteamUGC() exists in the dll but not the header...
-# SteamClient()->GetISteamUGC() Exists, we'll use that if Valve doesn't add in SteamUGC() soon.
-if 'isteamugc.h' in g_files:
-    g_files.remove('isteamugc.h')
-
 try:
     os.makedirs('wrapper/')
 except OSError:

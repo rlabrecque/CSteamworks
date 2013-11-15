@@ -103,10 +103,14 @@
     <ClCompile Include="..\..\wrapper\isteamps3overlayrenderer.cpp" />
     <ClCompile Include="..\..\wrapper\isteamremotestorage.cpp" />
     <ClCompile Include="..\..\wrapper\isteamscreenshots.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamugc.cpp" />
     <ClCompile Include="..\..\wrapper\isteamunifiedmessages.cpp" />
     <ClCompile Include="..\..\wrapper\isteamuser.cpp" />
     <ClCompile Include="..\..\wrapper\isteamuserstats.cpp" />
     <ClCompile Include="..\..\wrapper\isteamutils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="..\..\redistributable_bin\steam_api.lib" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\steam\isteamapps.h" />
@@ -124,6 +128,7 @@
     <ClInclude Include="..\..\steam\isteamps3overlayrenderer.h" />
     <ClInclude Include="..\..\steam\isteamremotestorage.h" />
     <ClInclude Include="..\..\steam\isteamscreenshots.h" />
+    <ClInclude Include="..\..\steam\isteamugc.h" />
     <ClInclude Include="..\..\steam\isteamunifiedmessages.h" />
     <ClInclude Include="..\..\steam\isteamuser.h" />
     <ClInclude Include="..\..\steam\isteamuserstats.h" />
@@ -137,9 +142,6 @@
     <ClInclude Include="..\..\steam\steamuniverse.h" />
     <ClInclude Include="..\..\steam\steam_api.h" />
     <ClInclude Include="..\..\steam\steam_gameserver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\redistributable_bin\steam_api.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
