@@ -7,44 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20087E9C1819AD38000D34B5 /* isteamapps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E8D1819AD38000D34B5 /* isteamapps.cpp */; };
-		20087E9D1819AD38000D34B5 /* isteamclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E8E1819AD38000D34B5 /* isteamclient.cpp */; };
-		20087E9E1819AD38000D34B5 /* isteamfriends.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E8F1819AD38000D34B5 /* isteamfriends.cpp */; };
-		20087E9F1819AD38000D34B5 /* isteamgameserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E901819AD38000D34B5 /* isteamgameserver.cpp */; };
-		20087EA01819AD38000D34B5 /* isteamgameserverstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E911819AD38000D34B5 /* isteamgameserverstats.cpp */; };
-		20087EA11819AD38000D34B5 /* isteamhttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E921819AD38000D34B5 /* isteamhttp.cpp */; };
-		20087EA21819AD38000D34B5 /* isteammatchmaking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E931819AD38000D34B5 /* isteammatchmaking.cpp */; };
-		20087EA31819AD38000D34B5 /* isteamnetworking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E941819AD38000D34B5 /* isteamnetworking.cpp */; };
-		20087EA41819AD38000D34B5 /* isteamps3overlayrenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E951819AD38000D34B5 /* isteamps3overlayrenderer.cpp */; };
-		20087EA51819AD38000D34B5 /* isteamremotestorage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E961819AD38000D34B5 /* isteamremotestorage.cpp */; };
-		20087EA61819AD38000D34B5 /* isteamscreenshots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E971819AD38000D34B5 /* isteamscreenshots.cpp */; };
-		20087EA71819AD38000D34B5 /* isteamunifiedmessages.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E981819AD38000D34B5 /* isteamunifiedmessages.cpp */; };
-		20087EA81819AD38000D34B5 /* isteamuser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E991819AD38000D34B5 /* isteamuser.cpp */; };
-		20087EA91819AD38000D34B5 /* isteamuserstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E9A1819AD38000D34B5 /* isteamuserstats.cpp */; };
-		20087EAA1819AD38000D34B5 /* isteamutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20087E9B1819AD38000D34B5 /* isteamutils.cpp */; };
 		20087EE61819AD97000D34B5 /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20087EE51819AD97000D34B5 /* libsteam_api.dylib */; };
+		201344111835ECAB006F32EE /* isteamapps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344011835ECAB006F32EE /* isteamapps.cpp */; };
+		201344121835ECAB006F32EE /* isteamclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344021835ECAB006F32EE /* isteamclient.cpp */; };
+		201344131835ECAB006F32EE /* isteamfriends.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344031835ECAB006F32EE /* isteamfriends.cpp */; };
+		201344141835ECAB006F32EE /* isteamgameserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344041835ECAB006F32EE /* isteamgameserver.cpp */; };
+		201344151835ECAB006F32EE /* isteamgameserverstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344051835ECAB006F32EE /* isteamgameserverstats.cpp */; };
+		201344161835ECAB006F32EE /* isteamhttp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344061835ECAB006F32EE /* isteamhttp.cpp */; };
+		201344171835ECAB006F32EE /* isteammatchmaking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344071835ECAB006F32EE /* isteammatchmaking.cpp */; };
+		201344181835ECAB006F32EE /* isteamnetworking.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344081835ECAB006F32EE /* isteamnetworking.cpp */; };
+		201344191835ECAB006F32EE /* isteamps3overlayrenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344091835ECAB006F32EE /* isteamps3overlayrenderer.cpp */; };
+		2013441A1835ECAB006F32EE /* isteamremotestorage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2013440A1835ECAB006F32EE /* isteamremotestorage.cpp */; };
+		2013441B1835ECAB006F32EE /* isteamscreenshots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2013440B1835ECAB006F32EE /* isteamscreenshots.cpp */; };
+		2013441C1835ECAB006F32EE /* isteamugc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2013440C1835ECAB006F32EE /* isteamugc.cpp */; };
+		2013441D1835ECAB006F32EE /* isteamunifiedmessages.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2013440D1835ECAB006F32EE /* isteamunifiedmessages.cpp */; };
+		2013441E1835ECAB006F32EE /* isteamuser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2013440E1835ECAB006F32EE /* isteamuser.cpp */; };
+		2013441F1835ECAB006F32EE /* isteamuserstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2013440F1835ECAB006F32EE /* isteamuserstats.cpp */; };
+		201344201835ECAB006F32EE /* isteamutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201344101835ECAB006F32EE /* isteamutils.cpp */; };
 		2052CDDD183321D900F52B16 /* steam_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2052CDDC183321D900F52B16 /* steam_api.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		20087E8D1819AD38000D34B5 /* isteamapps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamapps.cpp; sourceTree = "<group>"; };
-		20087E8E1819AD38000D34B5 /* isteamclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamclient.cpp; sourceTree = "<group>"; };
-		20087E8F1819AD38000D34B5 /* isteamfriends.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamfriends.cpp; sourceTree = "<group>"; };
-		20087E901819AD38000D34B5 /* isteamgameserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamgameserver.cpp; sourceTree = "<group>"; };
-		20087E911819AD38000D34B5 /* isteamgameserverstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamgameserverstats.cpp; sourceTree = "<group>"; };
-		20087E921819AD38000D34B5 /* isteamhttp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamhttp.cpp; sourceTree = "<group>"; };
-		20087E931819AD38000D34B5 /* isteammatchmaking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteammatchmaking.cpp; sourceTree = "<group>"; };
-		20087E941819AD38000D34B5 /* isteamnetworking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamnetworking.cpp; sourceTree = "<group>"; };
-		20087E951819AD38000D34B5 /* isteamps3overlayrenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamps3overlayrenderer.cpp; sourceTree = "<group>"; };
-		20087E961819AD38000D34B5 /* isteamremotestorage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamremotestorage.cpp; sourceTree = "<group>"; };
-		20087E971819AD38000D34B5 /* isteamscreenshots.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamscreenshots.cpp; sourceTree = "<group>"; };
-		20087E981819AD38000D34B5 /* isteamunifiedmessages.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamunifiedmessages.cpp; sourceTree = "<group>"; };
-		20087E991819AD38000D34B5 /* isteamuser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuser.cpp; sourceTree = "<group>"; };
-		20087E9A1819AD38000D34B5 /* isteamuserstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuserstats.cpp; sourceTree = "<group>"; };
-		20087E9B1819AD38000D34B5 /* isteamutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamutils.cpp; sourceTree = "<group>"; };
 		20087EE51819AD97000D34B5 /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = ../../redistributable_bin/osx32/libsteam_api.dylib; sourceTree = "<group>"; };
+		201344011835ECAB006F32EE /* isteamapps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamapps.cpp; sourceTree = "<group>"; };
+		201344021835ECAB006F32EE /* isteamclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamclient.cpp; sourceTree = "<group>"; };
+		201344031835ECAB006F32EE /* isteamfriends.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamfriends.cpp; sourceTree = "<group>"; };
+		201344041835ECAB006F32EE /* isteamgameserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamgameserver.cpp; sourceTree = "<group>"; };
+		201344051835ECAB006F32EE /* isteamgameserverstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamgameserverstats.cpp; sourceTree = "<group>"; };
+		201344061835ECAB006F32EE /* isteamhttp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamhttp.cpp; sourceTree = "<group>"; };
+		201344071835ECAB006F32EE /* isteammatchmaking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteammatchmaking.cpp; sourceTree = "<group>"; };
+		201344081835ECAB006F32EE /* isteamnetworking.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamnetworking.cpp; sourceTree = "<group>"; };
+		201344091835ECAB006F32EE /* isteamps3overlayrenderer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamps3overlayrenderer.cpp; sourceTree = "<group>"; };
+		2013440A1835ECAB006F32EE /* isteamremotestorage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamremotestorage.cpp; sourceTree = "<group>"; };
+		2013440B1835ECAB006F32EE /* isteamscreenshots.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamscreenshots.cpp; sourceTree = "<group>"; };
+		2013440C1835ECAB006F32EE /* isteamugc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamugc.cpp; sourceTree = "<group>"; };
+		2013440D1835ECAB006F32EE /* isteamunifiedmessages.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamunifiedmessages.cpp; sourceTree = "<group>"; };
+		2013440E1835ECAB006F32EE /* isteamuser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuser.cpp; sourceTree = "<group>"; };
+		2013440F1835ECAB006F32EE /* isteamuserstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuserstats.cpp; sourceTree = "<group>"; };
+		201344101835ECAB006F32EE /* isteamutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamutils.cpp; sourceTree = "<group>"; };
 		2052CDDC183321D900F52B16 /* steam_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = steam_api.cpp; path = ../../src/steam_api.cpp; sourceTree = "<group>"; };
 		6A3F7F7E10AC146D00948A73 /* CSteamworks.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSteamworks.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3F7F7F10AC146D00948A73 /* CSteamworks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSteamworks-Info.plist"; sourceTree = "<group>"; };
@@ -113,21 +115,22 @@
 		20087E8C1819AD38000D34B5 /* wrapper */ = {
 			isa = PBXGroup;
 			children = (
-				20087E8D1819AD38000D34B5 /* isteamapps.cpp */,
-				20087E8E1819AD38000D34B5 /* isteamclient.cpp */,
-				20087E8F1819AD38000D34B5 /* isteamfriends.cpp */,
-				20087E901819AD38000D34B5 /* isteamgameserver.cpp */,
-				20087E911819AD38000D34B5 /* isteamgameserverstats.cpp */,
-				20087E921819AD38000D34B5 /* isteamhttp.cpp */,
-				20087E931819AD38000D34B5 /* isteammatchmaking.cpp */,
-				20087E941819AD38000D34B5 /* isteamnetworking.cpp */,
-				20087E951819AD38000D34B5 /* isteamps3overlayrenderer.cpp */,
-				20087E961819AD38000D34B5 /* isteamremotestorage.cpp */,
-				20087E971819AD38000D34B5 /* isteamscreenshots.cpp */,
-				20087E981819AD38000D34B5 /* isteamunifiedmessages.cpp */,
-				20087E991819AD38000D34B5 /* isteamuser.cpp */,
-				20087E9A1819AD38000D34B5 /* isteamuserstats.cpp */,
-				20087E9B1819AD38000D34B5 /* isteamutils.cpp */,
+				201344011835ECAB006F32EE /* isteamapps.cpp */,
+				201344021835ECAB006F32EE /* isteamclient.cpp */,
+				201344031835ECAB006F32EE /* isteamfriends.cpp */,
+				201344041835ECAB006F32EE /* isteamgameserver.cpp */,
+				201344051835ECAB006F32EE /* isteamgameserverstats.cpp */,
+				201344061835ECAB006F32EE /* isteamhttp.cpp */,
+				201344071835ECAB006F32EE /* isteammatchmaking.cpp */,
+				201344081835ECAB006F32EE /* isteamnetworking.cpp */,
+				201344091835ECAB006F32EE /* isteamps3overlayrenderer.cpp */,
+				2013440A1835ECAB006F32EE /* isteamremotestorage.cpp */,
+				2013440B1835ECAB006F32EE /* isteamscreenshots.cpp */,
+				2013440C1835ECAB006F32EE /* isteamugc.cpp */,
+				2013440D1835ECAB006F32EE /* isteamunifiedmessages.cpp */,
+				2013440E1835ECAB006F32EE /* isteamuser.cpp */,
+				2013440F1835ECAB006F32EE /* isteamuserstats.cpp */,
+				201344101835ECAB006F32EE /* isteamutils.cpp */,
 			);
 			name = wrapper;
 			path = ../../wrapper;
@@ -192,22 +195,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20087EA61819AD38000D34B5 /* isteamscreenshots.cpp in Sources */,
+				201344161835ECAB006F32EE /* isteamhttp.cpp in Sources */,
+				201344191835ECAB006F32EE /* isteamps3overlayrenderer.cpp in Sources */,
+				2013441A1835ECAB006F32EE /* isteamremotestorage.cpp in Sources */,
+				2013441E1835ECAB006F32EE /* isteamuser.cpp in Sources */,
+				201344131835ECAB006F32EE /* isteamfriends.cpp in Sources */,
+				2013441F1835ECAB006F32EE /* isteamuserstats.cpp in Sources */,
+				201344151835ECAB006F32EE /* isteamgameserverstats.cpp in Sources */,
+				201344121835ECAB006F32EE /* isteamclient.cpp in Sources */,
+				201344141835ECAB006F32EE /* isteamgameserver.cpp in Sources */,
+				201344171835ECAB006F32EE /* isteammatchmaking.cpp in Sources */,
+				201344201835ECAB006F32EE /* isteamutils.cpp in Sources */,
+				201344111835ECAB006F32EE /* isteamapps.cpp in Sources */,
 				2052CDDD183321D900F52B16 /* steam_api.cpp in Sources */,
-				20087EA31819AD38000D34B5 /* isteamnetworking.cpp in Sources */,
-				20087EA11819AD38000D34B5 /* isteamhttp.cpp in Sources */,
-				20087EA01819AD38000D34B5 /* isteamgameserverstats.cpp in Sources */,
-				20087E9E1819AD38000D34B5 /* isteamfriends.cpp in Sources */,
-				20087EA81819AD38000D34B5 /* isteamuser.cpp in Sources */,
-				20087EA71819AD38000D34B5 /* isteamunifiedmessages.cpp in Sources */,
-				20087E9F1819AD38000D34B5 /* isteamgameserver.cpp in Sources */,
-				20087E9C1819AD38000D34B5 /* isteamapps.cpp in Sources */,
-				20087EAA1819AD38000D34B5 /* isteamutils.cpp in Sources */,
-				20087EA51819AD38000D34B5 /* isteamremotestorage.cpp in Sources */,
-				20087EA21819AD38000D34B5 /* isteammatchmaking.cpp in Sources */,
-				20087EA91819AD38000D34B5 /* isteamuserstats.cpp in Sources */,
-				20087E9D1819AD38000D34B5 /* isteamclient.cpp in Sources */,
-				20087EA41819AD38000D34B5 /* isteamps3overlayrenderer.cpp in Sources */,
+				2013441B1835ECAB006F32EE /* isteamscreenshots.cpp in Sources */,
+				201344181835ECAB006F32EE /* isteamnetworking.cpp in Sources */,
+				2013441C1835ECAB006F32EE /* isteamugc.cpp in Sources */,
+				2013441D1835ECAB006F32EE /* isteamunifiedmessages.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
