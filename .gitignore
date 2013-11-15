@@ -3,8 +3,7 @@
 [Dd]ebug/
 ipch/
 *.csproj
-*.sln
-*.userprefs
+*.user
 *.suo
 *.*sdf
 
