@@ -38,6 +38,12 @@ if 'isteamappticket.h' in g_files:
 if 'isteamgamecoordinator.h' in g_files:
     g_files.remove('isteamgamecoordinator.h')
 
+# We don't currently support SteamGameServer, simply because it hasn't been required yet.
+if 'isteamgameserver.h' in g_files:
+    g_files.remove('isteamgameserver.h')
+if 'isteamgameserverstats.h' in g_files:
+    g_files.remove('isteamgameserverstats.h')
+
 try:
     os.makedirs('wrapper/')
 except OSError:
