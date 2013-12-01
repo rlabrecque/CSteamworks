@@ -44,6 +44,7 @@
 		2013440F1835ECAB006F32EE /* isteamuserstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuserstats.cpp; sourceTree = "<group>"; };
 		201344101835ECAB006F32EE /* isteamutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamutils.cpp; sourceTree = "<group>"; };
 		2052CDDC183321D900F52B16 /* steam_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = steam_api.cpp; path = ../../src/steam_api.cpp; sourceTree = "<group>"; };
+		208C251F184ADADC00E90EBE /* CSteamworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSteamworks.h; path = ../../src/CSteamworks.h; sourceTree = "<group>"; };
 		6A3F7F7E10AC146D00948A73 /* CSteamworks.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSteamworks.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3F7F7F10AC146D00948A73 /* CSteamworks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSteamworks-Info.plist"; sourceTree = "<group>"; };
 		8D01CCD10486CAD60068D4B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +94,7 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				208C251F184ADADC00E90EBE /* CSteamworks.h */,
 				2052CDDC183321D900F52B16 /* steam_api.cpp */,
 				20087EE51819AD97000D34B5 /* libsteam_api.dylib */,
 				20087E8C1819AD38000D34B5 /* wrapper */,
@@ -266,14 +268,15 @@
 					"$(inherited)",
 					../../redistributable_bin/osx32,
 				);
+				OTHER_CFLAGS = "-DVERSION_SAFE_STEAM_API_INTERFACES";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Carbon,
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = CSteamworks;
-				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ../../steam;
+				SDKROOT = macosx10.8;
+				USER_HEADER_SEARCH_PATHS = "../../steam ../../src";
 				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
@@ -297,14 +300,15 @@
 					"$(inherited)",
 					../../redistributable_bin/osx32,
 				);
+				OTHER_CFLAGS = "-DVERSION_SAFE_STEAM_API_INTERFACES";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Carbon,
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = CSteamworks;
-				SDKROOT = macosx;
-				USER_HEADER_SEARCH_PATHS = ../../steam;
+				SDKROOT = macosx10.8;
+				USER_HEADER_SEARCH_PATHS = "../../steam ../../src";
 				WRAPPER_EXTENSION = bundle;
 				ZERO_LINK = NO;
 			};

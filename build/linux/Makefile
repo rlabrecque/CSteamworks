@@ -1,6 +1,6 @@
 OBJDIR := obj
 CXX := g++
-CPPFLAGS := -fPIC -m32 -I"../../steam"
+CPPFLAGS := -fPIC -m32 -I"../../src" -I"../../steam" -DVERSION_SAFE_STEAM_API_INTERFACES
 
 CPP_FILES1 := $(wildcard ../../src/*.cpp)
 OBJ_FILES1 := $(patsubst ../../src/%.cpp,$(OBJDIR)/%.o,$(CPP_FILES1))

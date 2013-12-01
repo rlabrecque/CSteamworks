@@ -1,140 +1,188 @@
 /**********************************************************
- * This File contains content that is Copyright of Valve Corporation.
- * This File is exempt from the LICENSE.txt agreement.
- * If you have agreed to Valves non-disclosure and/or license agreement
+ * This file contains content that is Copyright of Valve Corporation.
+ * As such, this file is exempt from the LICENSE.txt agreement.
+ * If you have agreed to Valves non-disclosure and/or license agreements
  * only then may you utilize this file under Public Domain.
  *
  * Riley Labrecque - 2013 - Public Domain
  *********************************************************/
 
-#include "steam_api.h"
-#include "steam_gameserver.h"
-#include "steamencryptedappticket.h"
+#include "CSteamworks.h"
 
-#if defined( _WIN32 )
-#define SB_API extern "C"  __declspec( dllexport )
-#elif defined( GNUC )
-#define SB_API extern "C" __attribute__ ((visibility ("default")))
-#else
-#define SB_API extern "C"
-#endif
+static CSteamAPIContext2 s_SteamContext;
+
+#ifdef VERSION_SAFE_STEAM_API_INTERFACES
+ISteamUser *S_CALLTYPE SteamUser() {
+	return s_SteamContext.SteamUser();
+}
+ISteamFriends *S_CALLTYPE SteamFriends() {
+	return s_SteamContext.SteamFriends();
+}
+ISteamUtils *S_CALLTYPE SteamUtils() {
+	return s_SteamContext.SteamUtils();
+}
+ISteamMatchmaking *S_CALLTYPE SteamMatchmaking() {
+	return s_SteamContext.SteamMatchmaking();
+}
+ISteamUserStats *S_CALLTYPE SteamUserStats() {
+	return s_SteamContext.SteamUserStats();
+}
+ISteamApps *S_CALLTYPE SteamApps() {
+	return s_SteamContext.SteamApps();
+}
+ISteamNetworking *S_CALLTYPE SteamNetworking() {
+	return s_SteamContext.SteamNetworking();
+}
+ISteamMatchmakingServers *S_CALLTYPE SteamMatchmakingServers() {
+	return s_SteamContext.SteamMatchmakingServers();
+}
+ISteamRemoteStorage *S_CALLTYPE SteamRemoteStorage() {
+	return s_SteamContext.SteamRemoteStorage();
+}
+ISteamScreenshots *S_CALLTYPE SteamScreenshots() {
+	return s_SteamContext.SteamScreenshots();
+}
+ISteamHTTP *S_CALLTYPE SteamHTTP() {
+	return s_SteamContext.SteamHTTP();
+}
+ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages() {
+	return s_SteamContext.SteamUnifiedMessages();
+}
+//ISteamController *S_CALLTYPE SteamController() {
+//	return s_SteamContext.SteamController();
+//}
+ISteamUGC *S_CALLTYPE SteamUGC() {
+	return s_SteamContext.SteamUGC();
+}
+#ifdef _PS3
+ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
+	return s_SteamContext.SteamPS3OverlayRender();
+}
+#endif // _PS3
+#endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 /**********************************************************
  * steam_api.h
  *********************************************************/
 
-SB_API void Shutdown() {
+SB_API void S_CALLTYPE Shutdown() {
 	SteamAPI_Shutdown();
 }
 
-SB_API bool IsSteamRunning() {
+SB_API bool S_CALLTYPE IsSteamRunning() {
 	return SteamAPI_IsSteamRunning();
 }
 
-SB_API bool RestartAppIfNecessary(uint32 unOwnAppID) {
+SB_API bool S_CALLTYPE RestartAppIfNecessary(uint32 unOwnAppID) {
 	return SteamAPI_RestartAppIfNecessary(unOwnAppID);
 }
 
-SB_API void WriteMiniDump(uint32 uStructuredExceptionCode, void* pvExceptionInfo, uint32 uBuildID) {
+SB_API void S_CALLTYPE WriteMiniDump(uint32 uStructuredExceptionCode, void* pvExceptionInfo, uint32 uBuildID) {
 	SteamAPI_WriteMiniDump(uStructuredExceptionCode, pvExceptionInfo, uBuildID);
 }
 
-SB_API void SetMiniDumpComment(const char *pchMsg) {
+SB_API void S_CALLTYPE SetMiniDumpComment(const char *pchMsg) {
 	SteamAPI_SetMiniDumpComment(pchMsg);
 }
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
-SB_API bool InitSafe() {
-	return SteamAPI_InitSafe();
+SB_API bool S_CALLTYPE InitSafe() {
+	bool ret = SteamAPI_InitSafe();
+	
+	if (ret) {
+		ret = s_SteamContext.Init();
+	}
+
+	return ret;
 }
 #else
 
 #if defined(_PS3)
-SB_API bool Init(SteamPS3Params_t *pParams) {
+SB_API bool S_CALLTYPE Init(SteamPS3Params_t *pParams) {
 	return SteamAPI_Init(pParams);
 }
 #else
-SB_API bool Init() {
+SB_API bool S_CALLTYPE Init() {
 	return SteamAPI_Init();
 }
 #endif
 
-//SB_API ISteamUser *SteamUser();
-//SB_API ISteamFriends *SteamFriends();
-//SB_API ISteamUtils *SteamUtils();
-//SB_API ISteamMatchmaking *SteamMatchmaking();
-//SB_API ISteamUserStats *SteamUserStats();
-//SB_API ISteamApps *SteamApps();
-//SB_API ISteamNetworking *SteamNetworking();
-//SB_API ISteamMatchmakingServers *SteamMatchmakingServers();
-//SB_API ISteamRemoteStorage *SteamRemoteStorage();
-//SB_API ISteamScreenshots *SteamScreenshots();
-//SB_API ISteamHTTP *SteamHTTP();
-//SB_API ISteamUnifiedMessages *SteamUnifiedMessages();
+//SB_API ISteamUser *S_CALLTYPE SteamUser();
+//SB_API ISteamFriends *S_CALLTYPE SteamFriends();
+//SB_API ISteamUtils *S_CALLTYPE SteamUtils();
+//SB_API ISteamMatchmaking *S_CALLTYPE SteamMatchmaking();
+//SB_API ISteamUserStats *S_CALLTYPE SteamUserStats();
+//SB_API ISteamApps *S_CALLTYPE SteamApps();
+//SB_API ISteamNetworking *S_CALLTYPE SteamNetworking();
+//SB_API ISteamMatchmakingServers *S_CALLTYPE SteamMatchmakingServers();
+//SB_API ISteamRemoteStorage *S_CALLTYPE SteamRemoteStorage();
+//SB_API ISteamScreenshots *S_CALLTYPE SteamScreenshots();
+//SB_API ISteamHTTP *S_CALLTYPE SteamHTTP();
+//SB_API ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages();
 #ifdef _PS3
-//SB_API ISteamPS3OverlayRender * SteamPS3OverlayRender();
+//SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender();
 #endif
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
-SB_API void RunCallbacks() {
+SB_API void S_CALLTYPE RunCallbacks() {
 	SteamAPI_RunCallbacks();
 }
 
-SB_API void RegisterCallback(class CCallbackBase *pCallback, int iCallback) {
+SB_API void S_CALLTYPE RegisterCallback(class CCallbackBase *pCallback, int iCallback) {
 	SteamAPI_RegisterCallback(pCallback, iCallback);
 }
 
-SB_API void UnregisterCallback(class CCallbackBase *pCallback) {
+SB_API void S_CALLTYPE UnregisterCallback(class CCallbackBase *pCallback) {
 	SteamAPI_UnregisterCallback(pCallback);
 }
 
-SB_API void RegisterCallResult(class CCallbackBase *pCallback, SteamAPICall_t hAPICall) {
+SB_API void S_CALLTYPE RegisterCallResult(class CCallbackBase *pCallback, SteamAPICall_t hAPICall) {
 	SteamAPI_RegisterCallResult(pCallback, hAPICall);
 }
 
-SB_API void UnregisterCallResult(class CCallbackBase *pCallback, SteamAPICall_t hAPICall) {
+SB_API void S_CALLTYPE UnregisterCallResult(class CCallbackBase *pCallback, SteamAPICall_t hAPICall) {
 	SteamAPI_UnregisterCallResult(pCallback, hAPICall);
 }
 
-SB_API void Steam_RunCallbacks_(HSteamPipe hSteamPipe, bool bGameServerCallbacks) {
+SB_API void S_CALLTYPE Steam_RunCallbacks_(HSteamPipe hSteamPipe, bool bGameServerCallbacks) {
 	Steam_RunCallbacks(hSteamPipe, bGameServerCallbacks);
 }
 
-SB_API void Steam_RegisterInterfaceFuncs_(void *hModule) {
+SB_API void S_CALLTYPE Steam_RegisterInterfaceFuncs_(void *hModule) {
 	Steam_RegisterInterfaceFuncs(hModule);
 }
 
-SB_API HSteamUser Steam_GetHSteamUserCurrent_() {
+SB_API HSteamUser S_CALLTYPE Steam_GetHSteamUserCurrent_() {
 	return Steam_GetHSteamUserCurrent();
 }
 
-SB_API const char *GetSteamInstallPath() {
+SB_API const char *S_CALLTYPE GetSteamInstallPath() {
 	return SteamAPI_GetSteamInstallPath();
 }
 
-SB_API HSteamPipe GetHSteamPipe_() {
+SB_API HSteamPipe S_CALLTYPE GetHSteamPipe_() {
 	return SteamAPI_GetHSteamPipe();
 }
 
-SB_API void SetTryCatchCallbacks(bool bTryCatchCallbacks) {
+SB_API void S_CALLTYPE SetTryCatchCallbacks(bool bTryCatchCallbacks) {
 	SteamAPI_SetTryCatchCallbacks(bTryCatchCallbacks);
 }
 
-//SB_API HSteamPipe GetHSteamPipe();
-//SB_API HSteamUser GetHSteamUser();
+//SB_API HSteamPipe S_CALLTYPE GetHSteamPipe();
+//SB_API HSteamUser S_CALLTYPE GetHSteamUser();
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
-SB_API HSteamUser GetHSteamUser() {
+SB_API HSteamUser S_CALLTYPE GetHSteamUser_() {
 	return SteamAPI_GetHSteamUser();
 }
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 #if defined(USE_BREAKPAD_HANDLER) || defined(STEAM_API_EXPORTS)
-SB_API void SteamAPI_UseBreakpadCrashHandler(char const *pchVersion, char const *pchDate, char const *pchTime, bool bFullMemoryDumps, void *pvContext, PFNPreMinidumpCallback m_pfnPreMinidumpCallback) {
+SB_API void S_CALLTYPE SteamAPI_UseBreakpadCrashHandler(char const *pchVersion, char const *pchDate, char const *pchTime, bool bFullMemoryDumps, void *pvContext, PFNPreMinidumpCallback m_pfnPreMinidumpCallback) {
 	SteamAPI_UseBreakpadCrashHandler(pchVersion, pchDate, pchTime, bFullMemoryDumps, pvContext, m_pfnPreMinidumpCallback)
 }
 
-SB_API void SetBreakpadAppID(uint32 unAppID) {
+SB_API void S_CALLTYPE SetBreakpadAppID(uint32 unAppID) {
 	SteamAPI_SetBreakpadAppID(uint32 unAppID);
 }
 #endif
@@ -142,15 +190,18 @@ SB_API void SetBreakpadAppID(uint32 unAppID) {
 /**********************************************************
  * steam_gameserver.h
  *********************************************************/
+#if 0
+static CSteamGameServerAPIContext2 s_SteamGameServerContext;
 
 #ifndef _PS3
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
-SB_API bool GameServer_InitSafe(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
-	return SteamGameServer_InitSafe(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString)
+SB_API bool S_CALLTYPE GameServer_InitSafe(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
+	//todo: CSteamGameServerContext?
+	return SteamGameServer_InitSafe(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
 }
 #else
-SB_API bool GameServer_Init(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
+SB_API bool S_CALLTYPE GameServer_Init(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
 	return SteamGameServer_Init(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
 }
 #endif
@@ -158,17 +209,51 @@ SB_API bool GameServer_Init(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, 
 #else
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
-SB_API bool GameServer_InitSafe(const SteamPS3Params_t *ps3Params, uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
+SB_API bool S_CALLTYPE GameServer_InitSafe(const SteamPS3Params_t *ps3Params, uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
 	return SteamGameServer_InitSafe(ps3Params, unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
 }
 #else
-SB_API bool GameServer_Init(const SteamPS3Params_t *ps3Params, uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
+SB_API bool S_CALLTYPE GameServer_Init(const SteamPS3Params_t *ps3Params, uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
 	return SteamGameServer_Init(ps3Params, unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
 }
 #endif
 
 #endif
 
+#ifndef VERSION_SAFE_STEAM_API_INTERFACES
+SB_API ISteamGameServer *S_CALLTYPE SteamGameServer();
+SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils();
+SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
+SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
+SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
+#endif
+
+SB_API void S_CALLTYPE SteamGameServer_Shutdown() {
+	return SteamGameServer_Shutdown();
+}
+
+SB_API void S_CALLTYPE SteamGameServer_RunCallbacks() {
+	return SteamGameServer_RunCallbacks();
+}
+
+SB_API bool S_CALLTYPE SteamGameServer_BSecure() {
+	return SteamGameServer_BSecure();
+}
+
+SB_API uint64 S_CALLTYPE SteamGameServer_GetSteamID() {
+	return SteamGameServer_GetSteamID();
+}
+
+SB_API HSteamPipe S_CALLTYPE SteamGameServer_GetHSteamPipe() {
+	return SteamGameServer_GetHSteamPipe();
+}
+
+#ifdef VERSION_SAFE_STEAM_API_INTERFACES
+SB_API HSteamUser S_CALLTYPE SteamGameServer_GetHSteamUser() {
+	return SteamGameServer_GetHSteamUser();
+}
+#endif
+#endif // 0
 /**********************************************************
  * steamencryptedappticket.h
  *********************************************************/
