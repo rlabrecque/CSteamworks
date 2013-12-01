@@ -186,7 +186,7 @@ for filename in g_files:
                         bReturnsCSteamID = True
                         returnvalue = 'SteamID_t '  # See CPP_HEADER for more details
 
-                    output.append('SB_API ' + returnvalue + methodname + '(' + args + ') {')
+                    output.append('SB_API ' + returnvalue + 'S_CALLTYPE ' + methodname + '(' + args + ') {')
                     if bReturnsCSteamID:
                         output.append('\treturn ' + iface[1:] + '()->' + realmethodname + '(' + typelessargs + ').ConvertToUint64();')
                     else:
