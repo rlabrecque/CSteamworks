@@ -17,6 +17,7 @@ The primary use case for _CSteamworks_ is to act as a buffer between a scripting
 [![Support via Flattr](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=rlabrecque&url=https%3A%2F%2Fgithub.com%2Frlabrecque%2FCSteamworks)
 
 Support via Bitcoin: 1svQRtNjCFthihzY5NN89aTan9WUua9GZ
+
 Support via Litecoin: LPSyg4uJYSUdmFLEMLe85rKw6G7aQkmTak
 
 
