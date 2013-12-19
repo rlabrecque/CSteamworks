@@ -12,7 +12,7 @@
 #endif
 
 // A few functions return CSteamID which can not be done when using extern "C"
-// We could slam it directly to uint64, but that doesn't give other wrappers the info they require.
+// We could slam it directly to uint64, but that doesn't give other wrappers the info they require for autogen.
 typedef uint64 SteamID_t;
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
@@ -35,7 +35,7 @@ ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender();
 #endif // _PS3
 
 // I'm sorry, I hate doing this too :(
-// We replicate CSteamAPIContext solely because of Unity.
+// We replicate CSteamAPIContext without SteamController support solely because of Unity on Linux.
 // More details here: http://steamcommunity.com/groups/steamworks/discussions/13/666827315255279716/#c666827315260524314
 class CSteamAPIContext2
 {

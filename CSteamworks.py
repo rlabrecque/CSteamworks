@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 #  Created by Riley Labrecque for Shorebound Studios
-#  This script requires Python 3.3+
+#  This script probably requires Python 3.3+
 #  This script is licensed under the MIT License
-#  See the included LICENSE.txt
-#  or the following for more info
+#  See the included LICENSE.txt or the following for more info
 #  http://www.tldrlegal.com/license/mit-license
 
 from __future__ import print_function
@@ -73,7 +72,7 @@ for filename in g_files:
             if pos != -1:
                 bInMultiLineCommentDepth = False
 
-                line = line[pos+len('*/'):].strip()
+                line = line[pos + len('*/'):].strip()
                 if len(line) == 0:
                     continue
 

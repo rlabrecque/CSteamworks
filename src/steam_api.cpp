@@ -11,46 +11,65 @@
 
 static CSteamAPIContext2 s_SteamContext;
 
+/**********************************************************
+ * This makes working with InitSafe / CSteamAPIContext much easier.
+ * An alternative would be to extern s_SteamContext and call each wrapped function through s_SteamContext directly.
+ * That would require two versions of each wrapped function, one being for VERSION_SAFE_[...]
+ *********************************************************/
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
+// SteamAPI Accessors:
 ISteamUser *S_CALLTYPE SteamUser() {
 	return s_SteamContext.SteamUser();
 }
+
 ISteamFriends *S_CALLTYPE SteamFriends() {
 	return s_SteamContext.SteamFriends();
 }
+
 ISteamUtils *S_CALLTYPE SteamUtils() {
 	return s_SteamContext.SteamUtils();
 }
+
 ISteamMatchmaking *S_CALLTYPE SteamMatchmaking() {
 	return s_SteamContext.SteamMatchmaking();
 }
+
 ISteamUserStats *S_CALLTYPE SteamUserStats() {
 	return s_SteamContext.SteamUserStats();
 }
+
 ISteamApps *S_CALLTYPE SteamApps() {
 	return s_SteamContext.SteamApps();
 }
+
 ISteamNetworking *S_CALLTYPE SteamNetworking() {
 	return s_SteamContext.SteamNetworking();
 }
+
 ISteamMatchmakingServers *S_CALLTYPE SteamMatchmakingServers() {
 	return s_SteamContext.SteamMatchmakingServers();
 }
+
 ISteamRemoteStorage *S_CALLTYPE SteamRemoteStorage() {
 	return s_SteamContext.SteamRemoteStorage();
 }
+
 ISteamScreenshots *S_CALLTYPE SteamScreenshots() {
 	return s_SteamContext.SteamScreenshots();
 }
+
 ISteamHTTP *S_CALLTYPE SteamHTTP() {
 	return s_SteamContext.SteamHTTP();
 }
+
 ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages() {
 	return s_SteamContext.SteamUnifiedMessages();
 }
+
 //ISteamController *S_CALLTYPE SteamController() {
 //	return s_SteamContext.SteamController();
 //}
+
 ISteamUGC *S_CALLTYPE SteamUGC() {
 	return s_SteamContext.SteamUGC();
 }
@@ -95,6 +114,7 @@ SB_API bool S_CALLTYPE InitSafe() {
 
 	return ret;
 }
+
 #else
 
 #if defined(_PS3)
@@ -168,6 +188,7 @@ SB_API void S_CALLTYPE SetTryCatchCallbacks(bool bTryCatchCallbacks) {
 	SteamAPI_SetTryCatchCallbacks(bTryCatchCallbacks);
 }
 
+//Legacy accessors, deprecated
 //SB_API HSteamPipe S_CALLTYPE GetHSteamPipe();
 //SB_API HSteamUser S_CALLTYPE GetHSteamUser();
 
@@ -255,42 +276,48 @@ SB_API HSteamUser S_CALLTYPE SteamGameServer_GetHSteamUser() {
 #endif
 #endif // 0
 /**********************************************************
- * steamencryptedappticket.h
- *********************************************************/
+* steamencryptedappticket.h
+* You're probably just better off importing from sdkencryptedappticket.dll directly.
+*********************************************************/
 
 #if 0
-SB_API bool EncryptedAppTicket_BDecryptTicket(const uint8 *rgubTicketEncrypted, uint32 cubTicketEncrypted, uint8 *rgubTicketDecrypted, uint32 *pcubTicketDecrypted, const uint8 rgubKey[k_nSteamEncryptedAppTicketSymmetricKeyLen], int cubKey) {
+SB_API bool BDecryptTicket(const uint8 *rgubTicketEncrypted, uint32 cubTicketEncrypted, uint8 *rgubTicketDecrypted, uint32 *pcubTicketDecrypted, const uint8 rgubKey[k_nSteamEncryptedAppTicketSymmetricKeyLen], int cubKey) {
 	return SteamEncryptedAppTicket_BDecryptTicket(rgubTicketEncrypted, cubTicketEncrypted, rgubTicketDecrypted, pcubTicketDecrypted, rgubKey, cubKey);
 }
 
-SB_API bool EncryptedAppTicket_BIsTicketForApp(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, AppId_t nAppID) {
+SB_API bool BIsTicketForApp(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, AppId_t nAppID) {
 	return SteamEncryptedAppTicket_BIsTicketForApp(rgubTicketDecrypted, cubTicketDecrypted, nAppID);
 }
 
-SB_API RTime32 EncryptedAppTicket_GetTicketIssueTime(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted) {
+SB_API RTime32 GetTicketIssueTime(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted) {
 	return SteamEncryptedAppTicket_GetTicketIssueTime(rgubTicketDecrypted, cubTicketDecrypted);
 }
 
-SB_API void EncryptedAppTicket_GetTicketSteamID(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, CSteamID *psteamID) {
+SB_API void GetTicketSteamID(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, CSteamID *psteamID) {
 	SteamEncryptedAppTicket_GetTicketSteamID(rgubTicketDecrypted, cubTicketDecrypted, psteamID);
 }
 
-SB_API AppId_t EncryptedAppTicket_GetTicketAppID(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted) {
+SB_API AppId_t GetTicketAppID(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted) {
 	return SteamEncryptedAppTicket_GetTicketAppID(rgubTicketDecrypted, cubTicketDecrypted);
 }
 
-SB_API bool EncryptedAppTicket_BUserOwnsAppInTicket(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, AppId_t nAppID) {
+SB_API bool BUserOwnsAppInTicket(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, AppId_t nAppID) {
 	return SteamEncryptedAppTicket_BUserOwnsAppInTicket(rgubTicketDecrypted, cubTicketDecrypted, nAppID);
 }
 
-SB_API bool EncryptedAppTicket_BUserIsVacBanned(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted) {
+SB_API bool BUserIsVacBanned(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted) {
 	return SteamEncryptedAppTicket_BUserIsVacBanned(rgubTicketDecrypted, cubTicketDecrypted);
 }
 
-SB_API const uint8 *EncryptedAppTicket_GetUserVariableData(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, uint32 *pcubUserData) {
+SB_API const uint8 *GetUserVariableData(uint8 *rgubTicketDecrypted, uint32 cubTicketDecrypted, uint32 *pcubUserData) {
 	return SteamEncryptedAppTicket_GetUserVariableData(rgubTicketDecrypted, cubTicketDecrypted, pcubUserData);
 }
 #endif // 0
+
+/**********************************************************
+ * steamclient.dll wrapper functions
+ * These expose the required functionality to write a custom Steam_RunCallbacks() function
+ *********************************************************/
 
 typedef bool (__cdecl * BGetCallback_t)(HSteamPipe, CallbackMsg_t *);
 typedef void (__cdecl * FreeLastCallback_t)(HSteamPipe);
