@@ -29,6 +29,21 @@
     <ClCompile Include="..\..\wrapper\isteamfriends.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamgameserver.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamgameserverhttp.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamgameservernetworking.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamgameserverstats.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamgameserverutils.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\wrapper\isteamhttp.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>

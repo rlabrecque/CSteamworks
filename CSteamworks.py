@@ -27,11 +27,19 @@ if 'isteamgamecoordinator.h' in g_files:
 if 'isteamps3overlayrenderer.h' in g_files:
     g_files.remove('isteamps3overlayrenderer.h')
 
-# We don't currently support SteamGameServer, simply because it hasn't been required yet.
-if 'isteamgameserver.h' in g_files:
-    g_files.remove('isteamgameserver.h')
-if 'isteamgameserverstats.h' in g_files:
-    g_files.remove('isteamgameserverstats.h')
+g_files.extend(['isteamgameserverutils.h', 'isteamgameservernetworking.h', 'isteamgameserverhttp.h'])
+
+g_GameServerFilenameDict = {
+    'isteamgameserverutils.h': 'isteamutils.h',
+    'isteamgameservernetworking.h': 'isteamnetworking.h',
+    'isteamgameserverhttp.h': 'isteamhttp.h',
+}
+
+g_GameServerIFaceDict = {
+    'isteamgameserverutils.h': 'ISteamGameServerUtils',
+    'isteamgameservernetworking.h': 'ISteamGameServerNetworking',
+    'isteamgameserverhttp.h': 'ISteamGameServerHTTP',
+}
 
 try:
     os.makedirs('wrapper/')
@@ -41,8 +49,13 @@ except OSError:
 g_methodnames = []
 
 for filename in g_files:
+    try:
+        emulatedfilename = g_GameServerFilenameDict[filename]
+    except KeyError:
+        emulatedfilename = filename
+
     print('Opening: "' + filename + '"')
-    with open('steam/' + filename, 'r') as f:
+    with open('steam/' + emulatedfilename, 'r') as f:
         output = []
         depth = 0
         iface = None
@@ -87,6 +100,10 @@ for filename in g_files:
                     continue
                 iface = line[pos + len('class '):].split()[0]
                 ifacedepth = depth
+                try:
+                    iface = g_GameServerIFaceDict[filename]
+                except KeyError:
+                    pass
                 print(iface)
 
                 if iface.startswith('ISteamPS3OverlayRender'):

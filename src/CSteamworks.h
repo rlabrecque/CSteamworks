@@ -34,6 +34,12 @@ ISteamUGC *S_CALLTYPE SteamUGC();
 ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender();
 #endif // _PS3
 
+ISteamGameServer *S_CALLTYPE SteamGameServer();
+ISteamUtils *S_CALLTYPE SteamGameServerUtils();
+ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
+ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
+ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
+
 // I'm sorry, I hate doing this too :(
 // We replicate CSteamAPIContext without SteamController support solely because of Unity on Linux.
 // More details here: http://steamcommunity.com/groups/steamworks/discussions/13/666827315255279716/#c666827315260524314

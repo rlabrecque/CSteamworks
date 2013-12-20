@@ -78,6 +78,27 @@ ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
 	return s_SteamContext.SteamPS3OverlayRender();
 }
 #endif // _PS3
+
+// GameServer Accessors:
+ISteamGameServer *S_CALLTYPE SteamGameServer() {
+	return s_SteamGameServerContext.SteamGameServer();
+}
+
+ISteamUtils *S_CALLTYPE SteamGameServerUtils() {
+	return s_SteamGameServerContext.SteamGameServerUtils();
+}
+
+ISteamNetworking *S_CALLTYPE SteamGameServerNetworking() {
+	return s_SteamGameServerContext.SteamGameServerNetworking();
+}
+
+ISteamGameServerStats *S_CALLTYPE SteamGameServerStats() {
+	return s_SteamGameServerContext.SteamGameServerStats();
+}
+
+ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
+	return s_SteamGameServerContext.SteamHTTP(); // This should have been named SteamGameServerHTTP, but it's inconsistent for some reason.
+}
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 /**********************************************************
@@ -211,15 +232,17 @@ SB_API void S_CALLTYPE SetBreakpadAppID(uint32 unAppID) {
 /**********************************************************
  * steam_gameserver.h
  *********************************************************/
-#if 0
-static CSteamGameServerAPIContext2 s_SteamGameServerContext;
-
 #ifndef _PS3
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
 SB_API bool S_CALLTYPE GameServer_InitSafe(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
-	//todo: CSteamGameServerContext?
-	return SteamGameServer_InitSafe(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
+	bool ret = SteamGameServer_InitSafe(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
+
+	if (ret) {
+		ret = s_SteamGameServerContext.Init();
+	}
+
+	return ret;
 }
 #else
 SB_API bool S_CALLTYPE GameServer_Init(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
@@ -231,7 +254,13 @@ SB_API bool S_CALLTYPE GameServer_Init(uint32 unIP, uint16 usSteamPort, uint16 u
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
 SB_API bool S_CALLTYPE GameServer_InitSafe(const SteamPS3Params_t *ps3Params, uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
-	return SteamGameServer_InitSafe(ps3Params, unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
+	bool ret = SteamGameServer_InitSafe(ps3Params, unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
+
+	if (ret) {
+		ret = s_SteamGameServerContext.Init();
+	}
+
+	return ret;
 }
 #else
 SB_API bool S_CALLTYPE GameServer_Init(const SteamPS3Params_t *ps3Params, uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
@@ -242,39 +271,39 @@ SB_API bool S_CALLTYPE GameServer_Init(const SteamPS3Params_t *ps3Params, uint32
 #endif
 
 #ifndef VERSION_SAFE_STEAM_API_INTERFACES
-SB_API ISteamGameServer *S_CALLTYPE SteamGameServer();
-SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils();
-SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
-SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
-SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
+//SB_API ISteamGameServer *S_CALLTYPE SteamGameServer();
+//SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils();
+//SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
+//SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
+//SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
 #endif
 
-SB_API void S_CALLTYPE SteamGameServer_Shutdown() {
+SB_API void S_CALLTYPE GameServer_Shutdown() {
 	return SteamGameServer_Shutdown();
 }
 
-SB_API void S_CALLTYPE SteamGameServer_RunCallbacks() {
+SB_API void S_CALLTYPE GameServer_RunCallbacks() {
 	return SteamGameServer_RunCallbacks();
 }
 
-SB_API bool S_CALLTYPE SteamGameServer_BSecure() {
+SB_API bool S_CALLTYPE GameServer_BSecure() {
 	return SteamGameServer_BSecure();
 }
 
-SB_API uint64 S_CALLTYPE SteamGameServer_GetSteamID() {
+SB_API uint64 S_CALLTYPE GameServer_GetSteamID() {
 	return SteamGameServer_GetSteamID();
 }
 
-SB_API HSteamPipe S_CALLTYPE SteamGameServer_GetHSteamPipe() {
+SB_API HSteamPipe S_CALLTYPE GameServer_GetHSteamPipe() {
 	return SteamGameServer_GetHSteamPipe();
 }
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
-SB_API HSteamUser S_CALLTYPE SteamGameServer_GetHSteamUser() {
+SB_API HSteamUser S_CALLTYPE GameServer_GetHSteamUser() {
 	return SteamGameServer_GetHSteamUser();
 }
 #endif
-#endif // 0
+
 /**********************************************************
 * steamencryptedappticket.h
 * You're probably just better off importing from sdkencryptedappticket.dll directly.
