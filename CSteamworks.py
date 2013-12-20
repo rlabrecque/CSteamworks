@@ -24,6 +24,8 @@ if 'isteamappticket.h' in g_files:
     g_files.remove('isteamappticket.h')
 if 'isteamgamecoordinator.h' in g_files:
     g_files.remove('isteamgamecoordinator.h')
+if 'isteamps3overlayrenderer.h' in g_files:
+    g_files.remove('isteamps3overlayrenderer.h')
 
 # We don't currently support SteamGameServer, simply because it hasn't been required yet.
 if 'isteamgameserver.h' in g_files:

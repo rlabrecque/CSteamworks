@@ -98,7 +98,6 @@
     <ClCompile Include="..\..\wrapper\isteamhttp.cpp" />
     <ClCompile Include="..\..\wrapper\isteammatchmaking.cpp" />
     <ClCompile Include="..\..\wrapper\isteamnetworking.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamps3overlayrenderer.cpp" />
     <ClCompile Include="..\..\wrapper\isteamremotestorage.cpp" />
     <ClCompile Include="..\..\wrapper\isteamscreenshots.cpp" />
     <ClCompile Include="..\..\wrapper\isteamugc.cpp" />

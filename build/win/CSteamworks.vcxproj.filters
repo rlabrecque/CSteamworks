@@ -38,9 +38,6 @@
     <ClCompile Include="..\..\wrapper\isteamnetworking.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamps3overlayrenderer.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\wrapper\isteamremotestorage.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
