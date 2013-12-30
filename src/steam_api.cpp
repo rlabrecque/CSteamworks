@@ -9,7 +9,8 @@
 
 #include "CSteamworks.h"
 
-static CSteamAPIContext2 s_SteamContext;
+static CSteamAPIContext s_SteamContext;
+static CSteamGameServerAPIContext s_SteamGameServerContext;
 
 /**********************************************************
  * This makes working with InitSafe / CSteamAPIContext much easier.
@@ -66,9 +67,9 @@ ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages() {
 	return s_SteamContext.SteamUnifiedMessages();
 }
 
-//ISteamController *S_CALLTYPE SteamController() {
-//	return s_SteamContext.SteamController();
-//}
+ISteamController *S_CALLTYPE SteamController() {
+	return s_SteamContext.SteamController();
+}
 
 ISteamUGC *S_CALLTYPE SteamUGC() {
 	return s_SteamContext.SteamUGC();

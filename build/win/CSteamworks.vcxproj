@@ -94,6 +94,7 @@
     <ClCompile Include="..\..\src\steam_api.cpp" />
     <ClCompile Include="..\..\wrapper\isteamapps.cpp" />
     <ClCompile Include="..\..\wrapper\isteamclient.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamcontroller.cpp" />
     <ClCompile Include="..\..\wrapper\isteamfriends.cpp" />
     <ClCompile Include="..\..\wrapper\isteamgameserver.cpp" />
     <ClCompile Include="..\..\wrapper\isteamgameserverhttp.cpp" />
@@ -138,6 +139,7 @@
     <ClInclude Include="..\..\steam\isteamutils.h" />
     <ClInclude Include="..\..\steam\matchmakingtypes.h" />
     <ClInclude Include="..\..\steam\steamclientpublic.h" />
+    <ClInclude Include="..\..\steam\steamcontrollerpublic.h" />
     <ClInclude Include="..\..\steam\steamencryptedappticket.h" />
     <ClInclude Include="..\..\steam\steamhttpenums.h" />
     <ClInclude Include="..\..\steam\steamps3params.h" />

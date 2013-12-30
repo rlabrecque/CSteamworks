@@ -26,6 +26,9 @@
     <ClCompile Include="..\..\wrapper\isteamclient.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamcontroller.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\wrapper\isteamfriends.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
@@ -151,6 +154,9 @@
       <Filter>Steam</Filter>
     </ClInclude>
     <ClInclude Include="..\..\steam\steamclientpublic.h">
+      <Filter>Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\steam\steamcontrollerpublic.h">
       <Filter>Steam</Filter>
     </ClInclude>
     <ClInclude Include="..\..\steam\steamencryptedappticket.h">

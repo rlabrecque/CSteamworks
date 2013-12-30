@@ -2,6 +2,7 @@
 #define CSTEAMWORKS_H
 
 #include "steam_gameserver.h" // Includes steam_api internally
+#include "steamencryptedappticket.h"
 
 #if defined( _WIN32 )
 #define SB_API extern "C"  __declspec( dllexport )
@@ -43,6 +44,7 @@ ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
 // I'm sorry, I hate doing this too :(
 // We replicate CSteamAPIContext without SteamController support solely because of Unity on Linux.
 // More details here: http://steamcommunity.com/groups/steamworks/discussions/13/666827315255279716/#c666827315260524314
+/*
 class CSteamAPIContext2
 {
 public:
@@ -185,7 +187,7 @@ inline bool CSteamAPIContext2::Init()
 #endif
 
 	return true;
-}
+}*/
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 #endif // CSTEAMWORKS_H
