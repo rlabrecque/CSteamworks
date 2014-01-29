@@ -27,6 +27,10 @@ if 'isteamgamecoordinator.h' in g_files:
 if 'isteamps3overlayrenderer.h' in g_files:
     g_files.remove('isteamps3overlayrenderer.h')
 
+# We don't currently support SteamVR
+if 'steamvr.h' in g_files:
+    g_files.remove('steamvr.h')
+
 g_files.extend(['isteamgameserverutils.h', 'isteamgameservernetworking.h', 'isteamgameserverhttp.h'])
 
 g_GameServerFilenameDict = {
