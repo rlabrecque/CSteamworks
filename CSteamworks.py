@@ -98,6 +98,9 @@ for filename in g_files:
             if pos != -1:
                 if ';' in line:
                     continue
+                elif 'Response' in line:  # We don't have a proper way to call responses yet
+                    continue
+                
                 iface = line[pos + len('class '):].split()[0]
                 ifacedepth = depth
                 try:
@@ -105,13 +108,6 @@ for filename in g_files:
                 except KeyError:
                     pass
                 print(iface)
-
-                if iface.startswith('ISteamPS3OverlayRender'):
-                    bDisableCode = True
-                    output.append('#if _PS3')
-                elif 'Response' in line:  # We don't have a proper way to call responses yet
-                    bDisableCode = True
-                    output.append('#if 0 // Disable Reponses')
 
             if iface:
                 if line.startswith('#'):
