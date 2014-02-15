@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		20087EE61819AD97000D34B5 /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20087EE51819AD97000D34B5 /* libsteam_api.dylib */; };
-		2052CDDD183321D900F52B16 /* steam_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2052CDDC183321D900F52B16 /* steam_api.cpp */; };
 		20624654189976240008C23F /* isteamapps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20624641189976240008C23F /* isteamapps.cpp */; };
 		20624655189976240008C23F /* isteamclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20624642189976240008C23F /* isteamclient.cpp */; };
 		20624656189976240008C23F /* isteamcontroller.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20624643189976240008C23F /* isteamcontroller.cpp */; };
@@ -28,13 +26,14 @@
 		20624664189976240008C23F /* isteamuser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20624651189976240008C23F /* isteamuser.cpp */; };
 		20624665189976240008C23F /* isteamuserstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20624652189976240008C23F /* isteamuserstats.cpp */; };
 		20624666189976240008C23F /* isteamutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20624653189976240008C23F /* isteamutils.cpp */; };
+		20AB6F5718AD9446000A449F /* steam_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20AB6F5518AD9446000A449F /* steam_api.cpp */; };
+		20AB6F5818AD9446000A449F /* steamvr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20AB6F5618AD9446000A449F /* steamvr.cpp */; };
+		20AB6F9F18AD9A1D000A449F /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AB6F9218AD99D2000A449F /* libsteam_api.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		08EA7FFBFE8413EDC02AAC07 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
-		20087EE51819AD97000D34B5 /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsteam_api.dylib; path = ../../redistributable_bin/osx32/libsteam_api.dylib; sourceTree = "<group>"; };
-		2052CDDC183321D900F52B16 /* steam_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = steam_api.cpp; path = ../../src/steam_api.cpp; sourceTree = "<group>"; };
 		20624641189976240008C23F /* isteamapps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamapps.cpp; sourceTree = "<group>"; };
 		20624642189976240008C23F /* isteamclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamclient.cpp; sourceTree = "<group>"; };
 		20624643189976240008C23F /* isteamcontroller.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamcontroller.cpp; sourceTree = "<group>"; };
@@ -54,7 +53,10 @@
 		20624651189976240008C23F /* isteamuser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuser.cpp; sourceTree = "<group>"; };
 		20624652189976240008C23F /* isteamuserstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuserstats.cpp; sourceTree = "<group>"; };
 		20624653189976240008C23F /* isteamutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamutils.cpp; sourceTree = "<group>"; };
-		208C251F184ADADC00E90EBE /* CSteamworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CSteamworks.h; path = ../../src/CSteamworks.h; sourceTree = "<group>"; };
+		20AB6F5418AD9446000A449F /* CSteamworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSteamworks.h; sourceTree = "<group>"; };
+		20AB6F5518AD9446000A449F /* steam_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steam_api.cpp; sourceTree = "<group>"; };
+		20AB6F5618AD9446000A449F /* steamvr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steamvr.cpp; sourceTree = "<group>"; };
+		20AB6F9218AD99D2000A449F /* libsteam_api.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libsteam_api.dylib; sourceTree = "<group>"; };
 		6A3F7F7E10AC146D00948A73 /* CSteamworks.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CSteamworks.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A3F7F7F10AC146D00948A73 /* CSteamworks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSteamworks-Info.plist"; sourceTree = "<group>"; };
 		8D01CCD10486CAD60068D4B7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -65,7 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20087EE61819AD97000D34B5 /* libsteam_api.dylib in Frameworks */,
+				20AB6F9F18AD9A1D000A449F /* libsteam_api.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,9 +106,8 @@
 		08FB77ADFE841716C02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				208C251F184ADADC00E90EBE /* CSteamworks.h */,
-				2052CDDC183321D900F52B16 /* steam_api.cpp */,
-				20087EE51819AD97000D34B5 /* libsteam_api.dylib */,
+				20AB6F8718AD99D2000A449F /* redistributable_bin */,
+				20AB6F5318AD9446000A449F /* src */,
 				20087E8C1819AD38000D34B5 /* wrapper */,
 			);
 			name = Source;
@@ -145,6 +146,34 @@
 			);
 			name = wrapper;
 			path = ../../wrapper;
+			sourceTree = "<group>";
+		};
+		20AB6F5318AD9446000A449F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				20AB6F5418AD9446000A449F /* CSteamworks.h */,
+				20AB6F5518AD9446000A449F /* steam_api.cpp */,
+				20AB6F5618AD9446000A449F /* steamvr.cpp */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		20AB6F8718AD99D2000A449F /* redistributable_bin */ = {
+			isa = PBXGroup;
+			children = (
+				20AB6F9018AD99D2000A449F /* osx32 */,
+			);
+			name = redistributable_bin;
+			path = ../../redistributable_bin;
+			sourceTree = "<group>";
+		};
+		20AB6F9018AD99D2000A449F /* osx32 */ = {
+			isa = PBXGroup;
+			children = (
+				20AB6F9218AD99D2000A449F /* libsteam_api.dylib */,
+			);
+			path = osx32;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +235,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20AB6F5818AD9446000A449F /* steamvr.cpp in Sources */,
 				20624665189976240008C23F /* isteamuserstats.cpp in Sources */,
 				20624662189976240008C23F /* isteamugc.cpp in Sources */,
 				20624659189976240008C23F /* isteamgameserverhttp.cpp in Sources */,
@@ -222,10 +252,10 @@
 				20624657189976240008C23F /* isteamfriends.cpp in Sources */,
 				20624663189976240008C23F /* isteamunifiedmessages.cpp in Sources */,
 				2062465D189976240008C23F /* isteamhttp.cpp in Sources */,
+				20AB6F5718AD9446000A449F /* steam_api.cpp in Sources */,
 				2062465C189976240008C23F /* isteamgameserverutils.cpp in Sources */,
 				2062465F189976240008C23F /* isteamnetworking.cpp in Sources */,
 				2062465B189976240008C23F /* isteamgameserverstats.cpp in Sources */,
-				2052CDDD183321D900F52B16 /* steam_api.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,12 +304,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					GNUC,
+					VERSION_SAFE_STEAM_API_INTERFACES,
+				);
 				INFOPLIST_FILE = "CSteamworks-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "";
@@ -287,8 +322,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					../../redistributable_bin/osx32,
+					/Users/bradenlabrecque/Desktop/CSteamworks/redistributable_bin/osx32,
+					/Users/bradenlabrecque/Desktop/CSteamworks/redistributable_bin,
+					/Users/bradenlabrecque/Desktop/CSteamworks/redistributable_bin/win64,
 				);
-				OTHER_CFLAGS = "-DVERSION_SAFE_STEAM_API_INTERFACES";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Carbon,
@@ -308,10 +346,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					GNUC,
+					VERSION_SAFE_STEAM_API_INTERFACES,
+				);
 				INFOPLIST_FILE = "CSteamworks-Info.plist";
 				INSTALL_PATH = "@rpath";
 				LD_DYLIB_INSTALL_NAME = "";
@@ -319,8 +362,11 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					../../redistributable_bin/osx32,
+					/Users/bradenlabrecque/Desktop/CSteamworks/redistributable_bin/osx32,
+					/Users/bradenlabrecque/Desktop/CSteamworks/redistributable_bin,
+					/Users/bradenlabrecque/Desktop/CSteamworks/redistributable_bin/win64,
 				);
-				OTHER_CFLAGS = "-DVERSION_SAFE_STEAM_API_INTERFACES";
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Carbon,

@@ -82,6 +82,9 @@
     <Library Include="..\..\redistributable_bin\steam_api.lib">
       <Filter>Resource Files</Filter>
     </Library>
+    <ClCompile Include="..\..\src\steamvr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\steam\isteamapps.h">

@@ -91,6 +91,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\steamvr.cpp" />
     <ClCompile Include="..\..\src\steam_api.cpp" />
     <ClCompile Include="..\..\wrapper\isteamapps.cpp" />
     <ClCompile Include="..\..\wrapper\isteamclient.cpp" />
