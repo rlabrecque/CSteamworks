@@ -2,6 +2,7 @@
 [Rr]elease/
 [Dd]ebug/
 ipch/
+*.aps
 *.csproj
 *.user
 *.suo

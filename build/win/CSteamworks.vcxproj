@@ -221,6 +221,10 @@
     <ClInclude Include="..\..\steam\steamuniverse.h" />
     <ClInclude Include="..\..\steam\steam_api.h" />
     <ClInclude Include="..\..\steam\steam_gameserver.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Version.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
