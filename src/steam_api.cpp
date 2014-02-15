@@ -477,12 +477,12 @@ SB_API bool __cdecl Steam_GetAPICallResult2(HSteamPipe hSteamPipe, SteamAPICall_
 SB_API bool Steam_BGetCallback2(HSteamPipe hSteamPipe, CallbackMsg_t *pCallbackMsg) {
 	static BGetCallback_t _Steam_BGetCallback = NULL;
 	if(!_Steam_BGetCallback) {
-        _Steam_BGetCallback = reinterpret_cast<BGetCallback_t>(dlsym(RTLD_DEFAULT, "Steam_BGetCallback"));
-            
-        if(!_Steam_BGetCallback) {
-            fprintf(stderr, "[CSteamworks] dlsym failed to find Steam_BGetCallback\n");
-            return false;
-        }
+		_Steam_BGetCallback = reinterpret_cast<BGetCallback_t>(dlsym(RTLD_DEFAULT, "Steam_BGetCallback"));
+			
+		if(!_Steam_BGetCallback) {
+			fprintf(stderr, "[CSteamworks] dlsym failed to find Steam_BGetCallback\n");
+			return false;
+		}
 	}
 	
 	return _Steam_BGetCallback(hSteamPipe, pCallbackMsg);
@@ -491,14 +491,14 @@ SB_API bool Steam_BGetCallback2(HSteamPipe hSteamPipe, CallbackMsg_t *pCallbackM
 SB_API void __cdecl Steam_FreeLastCallback2(HSteamPipe hSteamPipe) {
 	static FreeLastCallback_t _Steam_FreeLastCallback = NULL;
 	if(!_Steam_FreeLastCallback) {
-        _Steam_FreeLastCallback = reinterpret_cast<FreeLastCallback_t>(dlsym(RTLD_DEFAULT, "Steam_FreeLastCallback"));
-            
-        if(!_Steam_FreeLastCallback) {
-            fprintf(stderr, "[CSteamworks] dlsym failed to find Steam_FreeLastCallback\n");
-            return;
-        }
+		_Steam_FreeLastCallback = reinterpret_cast<FreeLastCallback_t>(dlsym(RTLD_DEFAULT, "Steam_FreeLastCallback"));
+			
+		if(!_Steam_FreeLastCallback) {
+			fprintf(stderr, "[CSteamworks] dlsym failed to find Steam_FreeLastCallback\n");
+			return;
+		}
 	}
-    
+	
 	return _Steam_FreeLastCallback(hSteamPipe);
 }
 
@@ -506,11 +506,11 @@ SB_API bool __cdecl Steam_GetAPICallResult2(HSteamPipe hSteamPipe, SteamAPICall_
 	static GetAPICallResult_t _Steam_GetAPICallResult = NULL;
 	if(!_Steam_GetAPICallResult)
 	{
-        _Steam_GetAPICallResult = reinterpret_cast<GetAPICallResult_t>(dlsym(RTLD_DEFAULT, "Steam_GetAPICallResult"));
+		_Steam_GetAPICallResult = reinterpret_cast<GetAPICallResult_t>(dlsym(RTLD_DEFAULT, "Steam_GetAPICallResult"));
 		
-        if(!_Steam_GetAPICallResult) {
-            fprintf(stderr, "[CSteamworks] dlsym failed to find Steam_GetAPICallResult\n");
-            return false;
+		if(!_Steam_GetAPICallResult) {
+			fprintf(stderr, "[CSteamworks] dlsym failed to find Steam_GetAPICallResult\n");
+			return false;
 		}
 	}
 	
