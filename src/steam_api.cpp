@@ -221,12 +221,12 @@ SB_API HSteamUser S_CALLTYPE GetHSteamUser_() {
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 #if defined(USE_BREAKPAD_HANDLER) || defined(STEAM_API_EXPORTS)
-SB_API void S_CALLTYPE SteamAPI_UseBreakpadCrashHandler(char const *pchVersion, char const *pchDate, char const *pchTime, bool bFullMemoryDumps, void *pvContext, PFNPreMinidumpCallback m_pfnPreMinidumpCallback) {
-	SteamAPI_UseBreakpadCrashHandler(pchVersion, pchDate, pchTime, bFullMemoryDumps, pvContext, m_pfnPreMinidumpCallback)
+SB_API void S_CALLTYPE UseBreakpadCrashHandler(char const *pchVersion, char const *pchDate, char const *pchTime, bool bFullMemoryDumps, void *pvContext, PFNPreMinidumpCallback m_pfnPreMinidumpCallback) {
+	SteamAPI_UseBreakpadCrashHandler(pchVersion, pchDate, pchTime, bFullMemoryDumps, pvContext, m_pfnPreMinidumpCallback);
 }
 
 SB_API void S_CALLTYPE SetBreakpadAppID(uint32 unAppID) {
-	SteamAPI_SetBreakpadAppID(uint32 unAppID);
+	SteamAPI_SetBreakpadAppID(unAppID);
 }
 #endif
 
