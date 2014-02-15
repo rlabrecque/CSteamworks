@@ -400,10 +400,16 @@ typedef bool (__cdecl * GetAPICallResult_t)(HSteamPipe, SteamAPICall_t, void *, 
 #include <windows.h> // God Damn it Windows.
 #include <stdio.h> // fprintf
 
+#ifdef _WIN64
+static const char *s_SteamClientDLLName = "steamclient64.dll";
+#else
+static const char *s_SteamClientDLLName = "steamclient.dll";
+#endif
+
 SB_API bool __cdecl Steam_BGetCallback2(HSteamPipe hSteamPipe, CallbackMsg_t *pCallbackMsg) {
 	static BGetCallback_t _Steam_BGetCallback = NULL;
 	if(!_Steam_BGetCallback) {
-		HMODULE hSteamClient = GetModuleHandleA("steamclient.dll");
+		HMODULE hSteamClient = GetModuleHandleA(s_SteamClientDLLName);
 		if(hSteamClient) {
 			_Steam_BGetCallback = reinterpret_cast<BGetCallback_t>(GetProcAddress(hSteamClient, "Steam_BGetCallback"));
 
@@ -424,7 +430,7 @@ SB_API bool __cdecl Steam_BGetCallback2(HSteamPipe hSteamPipe, CallbackMsg_t *pC
 SB_API void __cdecl Steam_FreeLastCallback2(HSteamPipe hSteamPipe) {
 	static FreeLastCallback_t _Steam_FreeLastCallback = NULL;
 	if(!_Steam_FreeLastCallback) {
-		HMODULE hSteamClient = GetModuleHandleA("steamclient.dll");
+		HMODULE hSteamClient = GetModuleHandleA(s_SteamClientDLLName);
 		if(hSteamClient) {
 			_Steam_FreeLastCallback = reinterpret_cast<FreeLastCallback_t>(GetProcAddress(hSteamClient, "Steam_FreeLastCallback"));
 			
@@ -445,7 +451,7 @@ SB_API void __cdecl Steam_FreeLastCallback2(HSteamPipe hSteamPipe) {
 SB_API bool __cdecl Steam_GetAPICallResult2(HSteamPipe hSteamPipe, SteamAPICall_t hSteamAPICall, void* pCallback, int cubCallback, int iCallbackExpected, bool* pbFailed) {
 	static GetAPICallResult_t _Steam_GetAPICallResult = NULL;
 	if(!_Steam_GetAPICallResult) {
-		HMODULE hSteamClient = GetModuleHandleA("steamclient.dll");
+		HMODULE hSteamClient = GetModuleHandleA(s_SteamClientDLLName);
 		if(hSteamClient) {
 			_Steam_GetAPICallResult = reinterpret_cast<GetAPICallResult_t>(GetProcAddress(hSteamClient, "Steam_GetAPICallResult"));
 			
@@ -518,11 +524,17 @@ SB_API bool __cdecl Steam_GetAPICallResult2(HSteamPipe hSteamPipe, SteamAPICall_
 #include <stdlib.h> // getenv
 #include <limits.h> // PATH_MAX
 
+#ifdef __x86_64__
+static const char *s_sdkDir = "sdk64";
+#else
+static const char *s_sdkDir = "sdk32";
+#endif
+
 static char s_resolved_path[PATH_MAX];
 static const char* GetSteamClientPath() {
 	static bool _once = false;
 	if(!_once) {
-		int cx = snprintf(s_resolved_path, PATH_MAX, "%s/.steam/sdk32/steamclient.so", getenv("HOME"));
+		int cx = snprintf(s_resolved_path, PATH_MAX, "%s/.steam/%s/steamclient.so", getenv("HOME"), s_sdkDir);
 		if(cx < 0 || cx > PATH_MAX) {
 			fprintf(stderr, "[CSteamworks] snprintf failed\n");
 		}

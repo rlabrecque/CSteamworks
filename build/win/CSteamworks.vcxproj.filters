@@ -77,11 +77,6 @@
     <ClCompile Include="..\..\wrapper\isteamutils.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Library Include="..\..\redistributable_bin\steam_api.lib">
-      <Filter>Resource Files</Filter>
-    </Library>
     <ClCompile Include="..\..\src\steamvr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
