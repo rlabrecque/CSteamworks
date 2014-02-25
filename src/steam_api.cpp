@@ -108,6 +108,10 @@ ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
 
 SB_API void S_CALLTYPE Shutdown() {
 	SteamAPI_Shutdown();
+
+#ifdef VERSION_SAFE_STEAM_API_INTERFACES
+	s_SteamContext.Clear();
+#endif
 }
 
 SB_API bool S_CALLTYPE IsSteamRunning() {
@@ -280,7 +284,11 @@ SB_API bool S_CALLTYPE GameServer_Init(const SteamPS3Params_t *ps3Params, uint32
 #endif
 
 SB_API void S_CALLTYPE GameServer_Shutdown() {
-	return SteamGameServer_Shutdown();
+	SteamGameServer_Shutdown();
+
+#ifdef VERSION_SAFE_STEAM_API_INTERFACES
+	s_SteamGameServerContext.Clear();
+#endif
 }
 
 SB_API void S_CALLTYPE GameServer_RunCallbacks() {
