@@ -130,6 +130,10 @@ SB_API void S_CALLTYPE SetMiniDumpComment(const char *pchMsg) {
 	SteamAPI_SetMiniDumpComment(pchMsg);
 }
 
+SB_API ISteamClient *S_CALLTYPE SteamClient_() {
+	return SteamClient();
+}
+
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
 SB_API bool S_CALLTYPE InitSafe() {
 	bool ret = SteamAPI_InitSafe();
@@ -312,6 +316,10 @@ SB_API HSteamUser S_CALLTYPE GameServer_GetHSteamUser() {
 	return SteamGameServer_GetHSteamUser();
 }
 #endif
+
+SB_API ISteamClient *SteamClientGameServer() {
+	return g_pSteamClientGameServer;
+}
 
 /**********************************************************
 * steamencryptedappticket.h
