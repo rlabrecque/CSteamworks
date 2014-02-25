@@ -19,85 +19,85 @@ static CSteamGameServerAPIContext s_SteamGameServerContext;
  *********************************************************/
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
 // SteamAPI Accessors:
-ISteamUser *S_CALLTYPE SteamUser() {
+SB_API ISteamUser *S_CALLTYPE SteamUser() {
 	return s_SteamContext.SteamUser();
 }
 
-ISteamFriends *S_CALLTYPE SteamFriends() {
+SB_API ISteamFriends *S_CALLTYPE SteamFriends() {
 	return s_SteamContext.SteamFriends();
 }
 
-ISteamUtils *S_CALLTYPE SteamUtils() {
+SB_API ISteamUtils *S_CALLTYPE SteamUtils() {
 	return s_SteamContext.SteamUtils();
 }
 
-ISteamMatchmaking *S_CALLTYPE SteamMatchmaking() {
+SB_API ISteamMatchmaking *S_CALLTYPE SteamMatchmaking() {
 	return s_SteamContext.SteamMatchmaking();
 }
 
-ISteamUserStats *S_CALLTYPE SteamUserStats() {
+SB_API ISteamUserStats *S_CALLTYPE SteamUserStats() {
 	return s_SteamContext.SteamUserStats();
 }
 
-ISteamApps *S_CALLTYPE SteamApps() {
+SB_API ISteamApps *S_CALLTYPE SteamApps() {
 	return s_SteamContext.SteamApps();
 }
 
-ISteamNetworking *S_CALLTYPE SteamNetworking() {
+SB_API ISteamNetworking *S_CALLTYPE SteamNetworking() {
 	return s_SteamContext.SteamNetworking();
 }
 
-ISteamMatchmakingServers *S_CALLTYPE SteamMatchmakingServers() {
+SB_API ISteamMatchmakingServers *S_CALLTYPE SteamMatchmakingServers() {
 	return s_SteamContext.SteamMatchmakingServers();
 }
 
-ISteamRemoteStorage *S_CALLTYPE SteamRemoteStorage() {
+SB_API ISteamRemoteStorage *S_CALLTYPE SteamRemoteStorage() {
 	return s_SteamContext.SteamRemoteStorage();
 }
 
-ISteamScreenshots *S_CALLTYPE SteamScreenshots() {
+SB_API ISteamScreenshots *S_CALLTYPE SteamScreenshots() {
 	return s_SteamContext.SteamScreenshots();
 }
 
-ISteamHTTP *S_CALLTYPE SteamHTTP() {
+SB_API ISteamHTTP *S_CALLTYPE SteamHTTP() {
 	return s_SteamContext.SteamHTTP();
 }
 
-ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages() {
+SB_API ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages() {
 	return s_SteamContext.SteamUnifiedMessages();
 }
 
-ISteamController *S_CALLTYPE SteamController() {
+SB_API ISteamController *S_CALLTYPE SteamController() {
 	return s_SteamContext.SteamController();
 }
 
-ISteamUGC *S_CALLTYPE SteamUGC() {
+SB_API ISteamUGC *S_CALLTYPE SteamUGC() {
 	return s_SteamContext.SteamUGC();
 }
 #ifdef _PS3
-ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
+SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
 	return s_SteamContext.SteamPS3OverlayRender();
 }
 #endif // _PS3
 
 // GameServer Accessors:
-ISteamGameServer *S_CALLTYPE SteamGameServer() {
+SB_API ISteamGameServer *S_CALLTYPE SteamGameServer() {
 	return s_SteamGameServerContext.SteamGameServer();
 }
 
-ISteamUtils *S_CALLTYPE SteamGameServerUtils() {
+SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils() {
 	return s_SteamGameServerContext.SteamGameServerUtils();
 }
 
-ISteamNetworking *S_CALLTYPE SteamGameServerNetworking() {
+SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking() {
 	return s_SteamGameServerContext.SteamGameServerNetworking();
 }
 
-ISteamGameServerStats *S_CALLTYPE SteamGameServerStats() {
+SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats() {
 	return s_SteamGameServerContext.SteamGameServerStats();
 }
 
-ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
+SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
 	return s_SteamGameServerContext.SteamHTTP(); // This should have been named SteamGameServerHTTP, but it's inconsistent for some reason.
 }
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
