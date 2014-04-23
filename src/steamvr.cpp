@@ -1,3 +1,9 @@
+/**********************************************************
+* Only if you have agreed to Valves non-disclosure and/or license
+* agreements only then may you utilize this file under Public Domain.
+*
+* Riley Labrecque - 2013-2014 - Public Domain
+*********************************************************/
 #include "CSteamworks.h"
 #include "steamvr.h"
 
@@ -75,4 +81,3 @@ SB_API uint32_t S_CALLTYPE IHmd_GetDriverId(char *pchBuffer, uint32_t unBufferLe
 SB_API uint32_t S_CALLTYPE IHmd_GetDisplayId(char *pchBuffer, uint32_t unBufferLen) {
 	return Hmd()->GetDisplayId(pchBuffer, unBufferLen);
 }
-

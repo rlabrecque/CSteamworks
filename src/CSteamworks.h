@@ -1,3 +1,10 @@
+/**********************************************************
+* Only if you have agreed to Valves non-disclosure and/or license
+* agreements only then may you utilize this file under Public Domain.
+*
+* Riley Labrecque - 2013-2014 - Public Domain
+*********************************************************/
+
 #ifndef CSTEAMWORKS_H
 #define CSTEAMWORKS_H
 

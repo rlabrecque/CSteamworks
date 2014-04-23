@@ -1,10 +1,8 @@
 /**********************************************************
- * This file contains content that is Copyright of Valve Corporation.
- * As such, this file is exempt from the LICENSE.txt agreement.
- * If you have agreed to Valves non-disclosure and/or license agreements
- * only then may you utilize this file under Public Domain.
+ * Only if you have agreed to Valves non-disclosure and/or license
+ * agreements only then may you utilize this file under Public Domain.
  *
- * Riley Labrecque - 2013 - Public Domain
+ * Riley Labrecque - 2013-2014 - Public Domain
  *********************************************************/
 
 #include "CSteamworks.h"
