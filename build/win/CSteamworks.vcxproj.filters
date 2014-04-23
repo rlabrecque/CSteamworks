@@ -182,5 +182,8 @@
     <ResourceCompile Include="Version.rc">
       <Filter>Resources</Filter>
     </ResourceCompile>
+    <ClInclude Include="..\..\src\steamcallbacks.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

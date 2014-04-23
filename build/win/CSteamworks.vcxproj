@@ -196,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\CSteamworks.h" />
+    <ClInclude Include="..\..\src\steamcallbacks.h" />
     <ClInclude Include="..\..\steam\isteamapps.h" />
     <ClInclude Include="..\..\steam\isteamappticket.h" />
     <ClInclude Include="..\..\steam\isteamclient.h" />

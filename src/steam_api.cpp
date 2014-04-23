@@ -6,9 +6,13 @@
  *********************************************************/
 
 #include "CSteamworks.h"
+#include "steamcallbacks.h"
 
 static CSteamAPIContext s_SteamContext;
 static CSteamGameServerAPIContext s_SteamGameServerContext;
+
+static SteamCallbacks* s_SteamCallbacks = nullptr;
+static SteamGameServerCallbacks* s_SteamGameServerCallbacks = nullptr;
 
 // These accessors make working with InitSafe() and CSteamAPIContext much easier by providing 
 // the same interface API that using the regular SteamAPI_Init() provides.
@@ -98,10 +102,31 @@ SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 /**********************************************************
+* CSteamworks Callbacks
+*********************************************************/
+
+SB_API void S_CALLTYPE CSteamworks_RunCallbacks(pfnOnCallback handler) {
+	g_apiCallbacksHandler = handler;
+	
+	SteamAPI_RunCallbacks();
+}
+
+SB_API void S_CALLTYPE CSteamworks_RunGameServerCallbacks(pfnOnCallback handler) {
+	g_apiCallbacksHandler = handler;
+
+	SteamGameServer_RunCallbacks();
+}
+
+/**********************************************************
  * steam_api.h
  *********************************************************/
 
 SB_API void S_CALLTYPE Shutdown() {
+	if (s_SteamCallbacks) {
+		delete s_SteamCallbacks;
+		s_SteamCallbacks = nullptr;
+	}
+
 	SteamAPI_Shutdown();
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
@@ -135,6 +160,13 @@ SB_API bool S_CALLTYPE InitSafe() {
 	
 	if (ret) {
 		ret = s_SteamContext.Init();
+
+		if (ret) {
+			if (s_SteamCallbacks)
+				delete s_SteamCallbacks;
+
+			s_SteamCallbacks = new SteamCallbacks();
+		}
 	}
 
 	return ret;
@@ -148,7 +180,16 @@ SB_API bool S_CALLTYPE Init(SteamPS3Params_t *pParams) {
 }
 #else
 SB_API bool S_CALLTYPE Init() {
-	return SteamAPI_Init();
+	bool ret = SteamAPI_Init();
+
+	if (ret) {
+		if (s_SteamCallbacks)
+			delete s_SteamCallbacks;
+
+		s_SteamCallbacks = new SteamCallbacks();
+	}
+
+	return ret;
 }
 #endif
 
@@ -244,13 +285,29 @@ SB_API bool S_CALLTYPE GameServer_InitSafe(uint32 unIP, uint16 usSteamPort, uint
 
 	if (ret) {
 		ret = s_SteamGameServerContext.Init();
+
+		if (ret) {
+			if (s_SteamGameServerCallbacks)
+				delete s_SteamGameServerCallbacks;
+
+			s_SteamGameServerCallbacks = new SteamGameServerCallbacks();
+		}
 	}
 
 	return ret;
 }
 #else
 SB_API bool S_CALLTYPE GameServer_Init(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
-	return SteamGameServer_Init(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
+	bool ret = SteamGameServer_Init(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
+
+	if (ret) {
+		if (s_SteamGameServerCallbacks)
+			delete s_SteamGameServerCallbacks;
+
+		s_SteamGameServerCallbacks = new SteamGameServerCallbacks();
+	}
+
+	return ret;
 }
 #endif
 
@@ -283,6 +340,11 @@ SB_API bool S_CALLTYPE GameServer_Init(const SteamPS3Params_t *ps3Params, uint32
 #endif
 
 SB_API void S_CALLTYPE GameServer_Shutdown() {
+	if (s_SteamGameServerCallbacks) {
+		delete s_SteamGameServerCallbacks;
+		s_SteamGameServerCallbacks = nullptr;
+	}
+
 	SteamGameServer_Shutdown();
 
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
