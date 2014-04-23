@@ -8,10 +8,17 @@
 #ifndef CSTEAMWORKS_H
 #define CSTEAMWORKS_H
 
+#if defined( _WIN32 )
+__pragma(warning(push))
+__pragma(warning(disable:4127)) // 'conditional expression is constant'
+__pragma(warning(disable:4996)) // 'strncpy': This function or variable may be unsafe. Consider using strncpy_s instead.
+#endif
 #include "steam_gameserver.h" // Includes steam_api internally
 #include "steamencryptedappticket.h"
-
+#include "isteamgamecoordinator.h"
 #if defined( _WIN32 )
+__pragma(warning(pop))
+
 #define SB_API extern "C"  __declspec( dllexport )
 #elif defined( GNUC )
 #define SB_API extern "C" __attribute__ ((visibility ("default")))

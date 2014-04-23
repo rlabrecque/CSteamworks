@@ -10,11 +10,8 @@
 static CSteamAPIContext s_SteamContext;
 static CSteamGameServerAPIContext s_SteamGameServerContext;
 
-/**********************************************************
- * This makes working with InitSafe / CSteamAPIContext much easier.
- * An alternative would be to extern s_SteamContext and call each wrapped function through s_SteamContext directly.
- * That would require two versions of each wrapped function, one being for VERSION_SAFE_[...]
- *********************************************************/
+// These accessors make working with InitSafe() and CSteamAPIContext much easier by providing 
+// the same interface API that using the regular SteamAPI_Init() provides.
 #ifdef VERSION_SAFE_STEAM_API_INTERFACES
 // SteamAPI Accessors:
 SB_API ISteamUser *S_CALLTYPE SteamUser() {
