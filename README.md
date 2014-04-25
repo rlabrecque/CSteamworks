@@ -8,7 +8,7 @@ The primary use case for _CSteamworks_ is to act as a buffer between a scripting
 * License: [MIT](http://www.opensource.org/licenses/mit-license.php)
 * [Github Project](https://github.com/rlabrecque/CSteamworks)
 * [Reporting Issues](https://github.com/rlabrecque/CSteamworks/issues)
-* Currently supports Steamworks SDK v1.28
+* Currently supports Steamworks SDK v1.29
 
 
 [![Support via Gittip](https://rawgithub.com/twolfson/gittip-badge/0.1.0/dist/gittip.png)](https://www.gittip.com/rlabrecque/)

@@ -7,7 +7,7 @@ else
 endif
 OBJDIR := $(STEAM_RUNTIME_TARGET_ARCH)/obj
 CXX := g++
-CPPFLAGS := -fPIC $(ARCH) -I"../../src" -I"../../steam" -DVERSION_SAFE_STEAM_API_INTERFACES -DGNUC
+CPPFLAGS := -fPIC $(ARCH) -I"../.." -I"../../src" -I"../../steam" -DVERSION_SAFE_STEAM_API_INTERFACES -DGNUC
 OUTFILE := $(STEAM_RUNTIME_TARGET_ARCH)/libCSteamworks.so
 
 CPP_FILES1 := $(wildcard ../../src/*.cpp)

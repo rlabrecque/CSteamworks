@@ -69,6 +69,14 @@ SB_API ISteamController *S_CALLTYPE SteamController() {
 SB_API ISteamUGC *S_CALLTYPE SteamUGC() {
 	return s_SteamContext.SteamUGC();
 }
+
+SB_API ISteamAppList *S_CALLTYPE SteamAppList() {
+	return s_SteamContext.SteamAppList();
+}
+
+SB_API ISteamMusic *S_CALLTYPE SteamMusic() {
+	return s_SteamContext.SteamMusic();
+}
 #ifdef _PS3
 SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
 	return s_SteamContext.SteamPS3OverlayRender();

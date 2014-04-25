@@ -19,6 +19,12 @@
     <ClCompile Include="..\..\src\steam_api.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\steamvr.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamapplist.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\wrapper\isteamapps.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
@@ -52,6 +58,9 @@
     <ClCompile Include="..\..\wrapper\isteammatchmaking.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteammusic.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\wrapper\isteamnetworking.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
@@ -75,9 +84,6 @@
     </ClCompile>
     <ClCompile Include="..\..\wrapper\isteamutils.cpp">
       <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\src\steamvr.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
