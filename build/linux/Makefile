@@ -27,7 +27,7 @@ $(OBJDIR)/%.o:  ../../wrapper/%.cpp
 	@echo "Compiling $<"
 
 all: $(OBJ_FILES1) $(OBJ_FILES2)
-	$(CXX) $(CPPFLAGS) -Wl,--no-as-needed -L$(LINKERSEARCHPATH) -lsteam_api -shared $^ -o $(OUTFILE)
+	$(CXX) $(CPPFLAGS) -Wl,-z,origin '-Wl,-rpath,$$ORIGIN' -L$(LINKERSEARCHPATH) -lsteam_api -shared $^ -o $(OUTFILE)
 
 clean:
 	rm -rf ./$(STEAM_RUNTIME_TARGET_ARCH)/
