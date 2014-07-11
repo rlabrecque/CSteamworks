@@ -47,6 +47,7 @@ SB_API ISteamController *S_CALLTYPE SteamController();
 SB_API ISteamUGC *S_CALLTYPE SteamUGC();
 SB_API ISteamAppList *S_CALLTYPE SteamAppList();
 SB_API ISteamMusic *S_CALLTYPE SteamMusic();
+SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote();
 #ifdef _PS3
 SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender();
 #endif // _PS3

@@ -148,8 +148,8 @@ for filename in g_files:
 
                             if token[-1] == ')':
                                 state = 3
-                            elif token[-1] != '(':  # Edge case like f(void arg) - shouldn't be triggered
-                                print("[WARNING] A function doesn't have whitespace between the backets.")
+                            elif token[-1] != '(':  # Edge case like f(void arg ) - shouldn't be triggered
+                                print("[WARNING] A function doesn't have whitespace between the backets. " + str(linenum) + " - " + methodname)
                                 token = token.split('(')[1]
                                 state = 2
                             else:
@@ -159,8 +159,8 @@ for filename in g_files:
                         if state == 2:  # Args
                             if token.startswith(')'):
                                 state = 3
-                            elif token.endswith(')'):  # Edge case like f(void arg) - shouldn't be triggered
-                                print("[WARNING] A function doesn't have whitespace between the backets.")
+                            elif token.endswith(')'):  # Edge case like f( void arg) - shouldn't be triggered
+                                print("[WARNING] A function doesn't have whitespace between the backets. " + str(linenum) + " - " + methodname)
                                 args += token[:-1]
                                 state = 3
                             else:

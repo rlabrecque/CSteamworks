@@ -187,6 +187,7 @@
     <ClCompile Include="..\..\wrapper\isteamhttp.cpp" />
     <ClCompile Include="..\..\wrapper\isteammatchmaking.cpp" />
     <ClCompile Include="..\..\wrapper\isteammusic.cpp" />
+    <ClCompile Include="..\..\wrapper\isteammusicremote.cpp" />
     <ClCompile Include="..\..\wrapper\isteamnetworking.cpp" />
     <ClCompile Include="..\..\wrapper\isteamremotestorage.cpp" />
     <ClCompile Include="..\..\wrapper\isteamscreenshots.cpp" />
@@ -198,6 +199,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\CSteamworks.h" />
+    <ClInclude Include="..\..\steam\isteamapplist.h" />
     <ClInclude Include="..\..\steam\isteamapps.h" />
     <ClInclude Include="..\..\steam\isteamappticket.h" />
     <ClInclude Include="..\..\steam\isteamclient.h" />
@@ -209,6 +211,8 @@
     <ClInclude Include="..\..\steam\isteamhttp.h" />
     <ClInclude Include="..\..\steam\isteammasterserverupdater.h" />
     <ClInclude Include="..\..\steam\isteammatchmaking.h" />
+    <ClInclude Include="..\..\steam\isteammusic.h" />
+    <ClInclude Include="..\..\steam\isteammusicremote.h" />
     <ClInclude Include="..\..\steam\isteamnetworking.h" />
     <ClInclude Include="..\..\steam\isteamps3overlayrenderer.h" />
     <ClInclude Include="..\..\steam\isteamremotestorage.h" />
@@ -226,6 +230,7 @@
     <ClInclude Include="..\..\steam\steamps3params.h" />
     <ClInclude Include="..\..\steam\steamtypes.h" />
     <ClInclude Include="..\..\steam\steamuniverse.h" />
+    <ClInclude Include="..\..\steam\steamvr.h" />
     <ClInclude Include="..\..\steam\steam_api.h" />
     <ClInclude Include="..\..\steam\steam_gameserver.h" />
     <ClInclude Include="resource.h" />

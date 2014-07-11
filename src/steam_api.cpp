@@ -77,6 +77,10 @@ SB_API ISteamAppList *S_CALLTYPE SteamAppList() {
 SB_API ISteamMusic *S_CALLTYPE SteamMusic() {
 	return s_SteamContext.SteamMusic();
 }
+
+SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote() {
+	return s_SteamContext.SteamMusicRemote();
+}
 #ifdef _PS3
 SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
 	return s_SteamContext.SteamPS3OverlayRender();

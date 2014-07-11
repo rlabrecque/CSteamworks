@@ -28,6 +28,7 @@
 		201230531909D5F300215AC2 /* isteamuser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2012303E1909D5F300215AC2 /* isteamuser.cpp */; };
 		201230541909D5F300215AC2 /* isteamuserstats.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2012303F1909D5F300215AC2 /* isteamuserstats.cpp */; };
 		201230551909D5F300215AC2 /* isteamutils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201230401909D5F300215AC2 /* isteamutils.cpp */; };
+		201ED68719705659002B1CF4 /* isteammusicremote.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 201ED68619705659002B1CF4 /* isteammusicremote.cpp */; };
 		20AB6F5718AD9446000A449F /* steam_api.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20AB6F5518AD9446000A449F /* steam_api.cpp */; };
 		20AB6F5818AD9446000A449F /* steamvr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 20AB6F5618AD9446000A449F /* steamvr.cpp */; };
 		20AB6F9F18AD9A1D000A449F /* libsteam_api.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 20AB6F9218AD99D2000A449F /* libsteam_api.dylib */; };
@@ -57,6 +58,7 @@
 		2012303E1909D5F300215AC2 /* isteamuser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuser.cpp; sourceTree = "<group>"; };
 		2012303F1909D5F300215AC2 /* isteamuserstats.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamuserstats.cpp; sourceTree = "<group>"; };
 		201230401909D5F300215AC2 /* isteamutils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteamutils.cpp; sourceTree = "<group>"; };
+		201ED68619705659002B1CF4 /* isteammusicremote.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = isteammusicremote.cpp; sourceTree = "<group>"; };
 		20AB6F5418AD9446000A449F /* CSteamworks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CSteamworks.h; sourceTree = "<group>"; };
 		20AB6F5518AD9446000A449F /* steam_api.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steam_api.cpp; sourceTree = "<group>"; };
 		20AB6F5618AD9446000A449F /* steamvr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = steamvr.cpp; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				201230361909D5F300215AC2 /* isteamhttp.cpp */,
 				201230371909D5F300215AC2 /* isteammatchmaking.cpp */,
 				201230381909D5F300215AC2 /* isteammusic.cpp */,
+				201ED68619705659002B1CF4 /* isteammusicremote.cpp */,
 				201230391909D5F300215AC2 /* isteamnetworking.cpp */,
 				2012303A1909D5F300215AC2 /* isteamremotestorage.cpp */,
 				2012303B1909D5F300215AC2 /* isteamscreenshots.cpp */,
@@ -263,6 +266,7 @@
 				201230521909D5F300215AC2 /* isteamunifiedmessages.cpp in Sources */,
 				201230501909D5F300215AC2 /* isteamscreenshots.cpp in Sources */,
 				2012304D1909D5F300215AC2 /* isteammusic.cpp in Sources */,
+				201ED68719705659002B1CF4 /* isteammusicremote.cpp in Sources */,
 				201230541909D5F300215AC2 /* isteamuserstats.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
