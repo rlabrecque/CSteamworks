@@ -116,7 +116,7 @@ for filename in g_files:
             if iface:
                 if line.startswith('#'):
                     output.append(line.strip() + '')
-                elif 'virtual' in line and ' = 0;' in line:
+                elif 'virtual' in line and line.endswith('0;'):
                     splitline = line[len('virtual '):].split()
                     state = 0
                     returnvalue = ''
