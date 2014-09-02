@@ -100,7 +100,7 @@ for filename in g_files:
 
             pos = line.find('class ISteam')
             if pos != -1:
-                if ';' in line:
+                if ';' in line:  # Gets rid of the forward declares in isteamclient.h
                     continue
                 elif 'Response' in line:  # We don't have a proper way to call responses yet
                     continue
