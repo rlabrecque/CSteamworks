@@ -45,6 +45,11 @@ g_GameServerIFaceDict = {
     'isteamgameserverhttp.h': 'ISteamGameServerHTTP',
 }
 
+g_TypeDict = {
+    'EHTMLMouseButton': 'ISteamHTMLSurface::EHTMLMouseButton',
+    'EHTMLKeyModifiers': 'ISteamHTMLSurface::EHTMLKeyModifiers',
+}
+
 try:
     os.makedirs('wrapper/')
 except OSError:
@@ -188,6 +193,11 @@ for filename in g_files:
                             elif i == len(argssplitted) - 1:
                                 typelessargs += token
                     typelessargs = typelessargs.rstrip()
+
+                    # Some types need to be converted for use and we do that here.
+                    for key in g_TypeDict:
+                        if key in args:
+                            args = args.replace(key, g_TypeDict[key])
 
                     bReturnsCSteamID = False
                     if returnvalue.strip() == 'CSteamID':  # Can not return a class with C ABI
