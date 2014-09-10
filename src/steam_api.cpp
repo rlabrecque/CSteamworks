@@ -81,6 +81,10 @@ SB_API ISteamMusic *S_CALLTYPE SteamMusic() {
 SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote() {
 	return s_SteamContext.SteamMusicRemote();
 }
+
+SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface() {
+	return s_SteamContext.SteamHTMLSurface();
+}
 #ifdef _PS3
 SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
 	return s_SteamContext.SteamPS3OverlayRender();
@@ -176,6 +180,12 @@ SB_API bool S_CALLTYPE Init() {
 //SB_API ISteamScreenshots *S_CALLTYPE SteamScreenshots();
 //SB_API ISteamHTTP *S_CALLTYPE SteamHTTP();
 //SB_API ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages();
+//SB_API ISteamController *S_CALLTYPE SteamController();
+//SB_API ISteamUGC *S_CALLTYPE SteamUGC();
+//SB_API ISteamAppList *S_CALLTYPE SteamAppList();
+//SB_API ISteamMusic *S_CALLTYPE SteamMusic();
+//SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote();
+//SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface();
 #ifdef _PS3
 //SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender();
 #endif

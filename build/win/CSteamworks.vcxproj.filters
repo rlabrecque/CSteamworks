@@ -88,6 +88,9 @@
     <ClCompile Include="..\..\wrapper\isteammusicremote.cpp">
       <Filter>Source Files\wrapper</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\wrapper\isteamhtmlsurface.cpp">
+      <Filter>Source Files\wrapper</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\steam\isteamapps.h">
@@ -196,6 +199,9 @@
       <Filter>Steam</Filter>
     </ClInclude>
     <ClInclude Include="..\..\steam\steamvr.h">
+      <Filter>Steam</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\steam\isteamhtmlsurface.h">
       <Filter>Steam</Filter>
     </ClInclude>
   </ItemGroup>

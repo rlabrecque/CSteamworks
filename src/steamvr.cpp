@@ -22,6 +22,14 @@ SB_API void S_CALLTYPE VR_Shutdown_() {
 	return vr::VR_Shutdown();
 }
 
+SB_API bool S_CALLTYPE VR_IsHmdPresent_() {
+	return vr::VR_IsHmdPresent();
+}
+
+SB_API const char * S_CALLTYPE VR_GetStringForHmdError_(vr::HmdError error) {
+	return vr::VR_GetStringForHmdError(error);
+}
+
 SB_API void S_CALLTYPE IHmd_GetWindowBounds(int32_t *pnX, int32_t *pnY, uint32_t *pnWidth, uint32_t *pnHeight) {
 	return Hmd()->GetWindowBounds(pnX, pnY, pnWidth, pnHeight);
 }
@@ -60,6 +68,10 @@ SB_API int32_t S_CALLTYPE IHmd_GetD3D9AdapterIndex() {
 
 SB_API void S_CALLTYPE IHmd_GetDXGIOutputInfo(int32_t *pnAdapterIndex, int32_t *pnAdapterOutputIndex) {
 	return Hmd()->GetDXGIOutputInfo(pnAdapterIndex, pnAdapterOutputIndex);
+}
+
+SB_API void S_CALLTYPE IHmd_AttachToWindow(void *hWnd) {
+	return Hmd()->AttachToWindow(hWnd);
 }
 
 SB_API bool S_CALLTYPE IHmd_GetTrackerFromHeadPose(float fPredictedSecondsFromNow, vr::HmdMatrix34_t *pmPose, vr::HmdTrackingResult *peResult) {

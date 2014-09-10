@@ -184,6 +184,7 @@
     <ClCompile Include="..\..\wrapper\isteamgameservernetworking.cpp" />
     <ClCompile Include="..\..\wrapper\isteamgameserverstats.cpp" />
     <ClCompile Include="..\..\wrapper\isteamgameserverutils.cpp" />
+    <ClCompile Include="..\..\wrapper\isteamhtmlsurface.cpp" />
     <ClCompile Include="..\..\wrapper\isteamhttp.cpp" />
     <ClCompile Include="..\..\wrapper\isteammatchmaking.cpp" />
     <ClCompile Include="..\..\wrapper\isteammusic.cpp" />
@@ -208,6 +209,7 @@
     <ClInclude Include="..\..\steam\isteamgamecoordinator.h" />
     <ClInclude Include="..\..\steam\isteamgameserver.h" />
     <ClInclude Include="..\..\steam\isteamgameserverstats.h" />
+    <ClInclude Include="..\..\steam\isteamhtmlsurface.h" />
     <ClInclude Include="..\..\steam\isteamhttp.h" />
     <ClInclude Include="..\..\steam\isteammasterserverupdater.h" />
     <ClInclude Include="..\..\steam\isteammatchmaking.h" />
