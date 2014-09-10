@@ -176,18 +176,23 @@ for filename in g_files:
 
                     args = args.rstrip()
                     typelessargs = ''
-                    if args != '':
+                    if args != '':  # Beware wary traveler, this is a mess!
                         argssplitted = args.strip().split(' ')
+                        bInDefaultArgs = False
                         for i, token in enumerate(argssplitted):
-                            if token == '=' or token == '""':  # Handle defaulted arguments
-                                continue
-                            if token == '0':  # Like f( int nChannel = 0 )
-                                token = argssplitted[i - 2]
+                            token = token.lstrip('*')
+                            if token == '=':
+                                bInDefaultArgs = True
+                                token = argssplitted[i-1].lstrip('*')
 
-                            if token.startswith('**'):
-                                typelessargs += token[2:] + ' '
-                            elif token.startswith('*'):
-                                typelessargs += token[1:] + ' '
+                            if bInDefaultArgs:
+                                if token.endswith(',') or i == len(argssplitted)-1:
+                                    bInDefaultArgs = False
+                                    continue
+                                typelessargs += token
+                                if bInDefaultArgs and i != len(argssplitted) - 2:
+                                    typelessargs += ', '
+                                continue
                             elif token[-1] == ',':
                                 typelessargs += token + ' '
                             elif i == len(argssplitted) - 1:
