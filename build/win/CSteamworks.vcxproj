@@ -169,72 +169,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\steamvr.cpp" />
     <ClCompile Include="..\..\src\steam_api.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamapplist.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamapps.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamclient.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamcontroller.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamfriends.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamgameserver.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamgameserverhttp.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamgameservernetworking.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamgameserverstats.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamgameserverutils.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamhtmlsurface.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamhttp.cpp" />
-    <ClCompile Include="..\..\wrapper\isteammatchmaking.cpp" />
-    <ClCompile Include="..\..\wrapper\isteammusic.cpp" />
-    <ClCompile Include="..\..\wrapper\isteammusicremote.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamnetworking.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamremotestorage.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamscreenshots.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamugc.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamunifiedmessages.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamuser.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamuserstats.cpp" />
-    <ClCompile Include="..\..\wrapper\isteamutils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\CSteamworks.h" />
-    <ClInclude Include="..\..\steam\isteamapplist.h" />
-    <ClInclude Include="..\..\steam\isteamapps.h" />
-    <ClInclude Include="..\..\steam\isteamappticket.h" />
-    <ClInclude Include="..\..\steam\isteamclient.h" />
-    <ClInclude Include="..\..\steam\isteamcontroller.h" />
-    <ClInclude Include="..\..\steam\isteamfriends.h" />
-    <ClInclude Include="..\..\steam\isteamgamecoordinator.h" />
-    <ClInclude Include="..\..\steam\isteamgameserver.h" />
-    <ClInclude Include="..\..\steam\isteamgameserverstats.h" />
-    <ClInclude Include="..\..\steam\isteamhtmlsurface.h" />
-    <ClInclude Include="..\..\steam\isteamhttp.h" />
-    <ClInclude Include="..\..\steam\isteammasterserverupdater.h" />
-    <ClInclude Include="..\..\steam\isteammatchmaking.h" />
-    <ClInclude Include="..\..\steam\isteammusic.h" />
-    <ClInclude Include="..\..\steam\isteammusicremote.h" />
-    <ClInclude Include="..\..\steam\isteamnetworking.h" />
-    <ClInclude Include="..\..\steam\isteamps3overlayrenderer.h" />
-    <ClInclude Include="..\..\steam\isteamremotestorage.h" />
-    <ClInclude Include="..\..\steam\isteamscreenshots.h" />
-    <ClInclude Include="..\..\steam\isteamugc.h" />
-    <ClInclude Include="..\..\steam\isteamunifiedmessages.h" />
-    <ClInclude Include="..\..\steam\isteamuser.h" />
-    <ClInclude Include="..\..\steam\isteamuserstats.h" />
-    <ClInclude Include="..\..\steam\isteamutils.h" />
-    <ClInclude Include="..\..\steam\matchmakingtypes.h" />
-    <ClInclude Include="..\..\steam\steamclientpublic.h" />
-    <ClInclude Include="..\..\steam\steamcontrollerpublic.h" />
-    <ClInclude Include="..\..\steam\steamencryptedappticket.h" />
-    <ClInclude Include="..\..\steam\steamhttpenums.h" />
-    <ClInclude Include="..\..\steam\steamps3params.h" />
-    <ClInclude Include="..\..\steam\steamtypes.h" />
-    <ClInclude Include="..\..\steam\steamuniverse.h" />
-    <ClInclude Include="..\..\steam\steamvr.h" />
-    <ClInclude Include="..\..\steam\steam_api.h" />
-    <ClInclude Include="..\..\steam\steam_gameserver.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

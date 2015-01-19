@@ -5,28 +5,21 @@ else
 	ARCH := -m64
 	LINKERSEARCHPATH := ../../redistributable_bin/linux64
 endif
-OBJDIR := $(STEAM_RUNTIME_TARGET_ARCH)/obj
 CXX := g++
-CPPFLAGS := -fPIC $(ARCH) -I"../.." -I"../../src" -I"../../steam" -DVERSION_SAFE_STEAM_API_INTERFACES -DGNUC
+INCLUDES := -I"../../src" -I"../../steam" -I"../../wrapper"
+CPPFLAGS := -fPIC $(ARCH) $(INCLUDES) -DVERSION_SAFE_STEAM_API_INTERFACES -DGNUC -Wall
+OBJDIR := $(STEAM_RUNTIME_TARGET_ARCH)/obj
 OUTFILE := $(STEAM_RUNTIME_TARGET_ARCH)/libCSteamworks.so
 
-CPP_FILES1 := $(wildcard ../../src/*.cpp)
-OBJ_FILES1 := $(patsubst ../../src/%.cpp,$(OBJDIR)/%.o,$(CPP_FILES1))
-CPP_FILES2 := $(wildcard ../../wrapper/*.cpp)
-OBJ_FILES2 := $(patsubst ../../wrapper/%.cpp,$(OBJDIR)/%.o,$(CPP_FILES2))
+CPP_FILES := ../../src/steam_api.cpp
+OBJ_FILES := $(OBJDIR)/steam_api.o
 
-$(OBJDIR)/%.o:  ../../src/%.cpp
-	@mkdir -p $(OBJDIR)
-	@$(CXX) $(CPPFLAGS) -c -o $@ $<
-	@echo "Compiling $<"
-	
-
-$(OBJDIR)/%.o:  ../../wrapper/%.cpp
+$(OBJDIR)/%.o:  $(CPP_FILES)
 	@mkdir -p $(OBJDIR)
 	@$(CXX) $(CPPFLAGS) -c -o $@ $<
 	@echo "Compiling $<"
 
-all: $(OBJ_FILES1) $(OBJ_FILES2)
+all: $(OBJ_FILES)
 	$(CXX) $(CPPFLAGS) -Wl,-z,origin '-Wl,-rpath,$$ORIGIN' -L$(LINKERSEARCHPATH) -lsteam_api -shared $^ -o $(OUTFILE)
 
 clean:

@@ -4,7 +4,6 @@
 *
 * Riley Labrecque - 2013-2014 - Public Domain
 *********************************************************/
-#include "CSteamworks.h"
 #include "steamvr.h"
 
 vr::IHmd *s_Hmd;

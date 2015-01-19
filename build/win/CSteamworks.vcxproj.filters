@@ -5,12 +5,6 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Steam">
-      <UniqueIdentifier>{9d2f2998-247e-450c-84c9-08a57a74ac46}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\wrapper">
-      <UniqueIdentifier>{a6393173-17a1-449b-849b-23d302e920d9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resources">
       <UniqueIdentifier>{fa043137-8d5e-475e-a463-7c7291156b66}</UniqueIdentifier>
     </Filter>
@@ -19,190 +13,13 @@
     <ClCompile Include="..\..\src\steam_api.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\src\steamvr.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamapplist.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamapps.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamclient.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamcontroller.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamfriends.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamgameserver.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamgameserverhttp.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamgameservernetworking.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamgameserverstats.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamgameserverutils.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamhttp.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteammatchmaking.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteammusic.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamnetworking.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamremotestorage.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamscreenshots.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamugc.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamunifiedmessages.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamuser.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamuserstats.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamutils.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteammusicremote.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\wrapper\isteamhtmlsurface.cpp">
-      <Filter>Source Files\wrapper</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\steam\isteamapps.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamappticket.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamclient.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamcontroller.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamfriends.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamgamecoordinator.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamgameserver.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamgameserverstats.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamhttp.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteammasterserverupdater.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteammatchmaking.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamnetworking.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamps3overlayrenderer.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamremotestorage.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamscreenshots.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamugc.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamunifiedmessages.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamuser.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamuserstats.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamutils.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\matchmakingtypes.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steam_api.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steam_gameserver.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamclientpublic.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamcontrollerpublic.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamencryptedappticket.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamhttpenums.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamps3params.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamtypes.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamuniverse.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\src\CSteamworks.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resources</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamapplist.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteammusic.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteammusicremote.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\steamvr.h">
-      <Filter>Steam</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\steam\isteamhtmlsurface.h">
-      <Filter>Steam</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

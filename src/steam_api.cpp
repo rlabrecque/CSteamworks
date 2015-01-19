@@ -643,3 +643,6 @@ SB_API bool __cdecl Steam_GetAPICallResult2(HSteamPipe hSteamPipe, SteamAPICall_
 	return _Steam_GetAPICallResult(hSteamPipe, hSteamAPICall, pCallback, cubCallback, iCallbackExpected, pbFailed);
 }
 #endif
+
+#include "unitybuild.cpp"
+#include "steamvr.cpp"
