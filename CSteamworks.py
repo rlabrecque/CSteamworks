@@ -70,6 +70,11 @@ for filename in g_files:
         ifacedepth = 0
         bInMultiLineCommentDepth = False
         bDisableCode = False
+        state = 0
+        returnvalue = ''
+        methodname = ''
+        realmethodname = ''
+        args = ''
         for linenum, line in enumerate(f):
             linenum += 1
             bMultiLineCommentCodeOnThisLine = False
@@ -120,13 +125,18 @@ for filename in g_files:
             if iface:
                 if line.startswith('#'):
                     output.append(line.strip() + '')
-                elif 'virtual' in line and line.endswith('0;'):
+                elif 'virtual' in line or state != 0:
+                    if '~' in line:
+                        continue
+
+                    if state == 0:
+                        returnvalue = ''
+                        methodname = ''
+                        realmethodname = ''
+                        args = ''
+
+
                     splitline = line[len('virtual '):].split()
-                    state = 0
-                    returnvalue = ''
-                    methodname = ''
-                    realmethodname = ''
-                    args = ''
                     for token in splitline:
                         if not token:
                             continue
@@ -171,7 +181,13 @@ for filename in g_files:
                                 args += token + ' '
 
                         if state == 3:  # ) = 0;
+                            if token.endswith(';'):
+                                state = 0
+                                break;
                             continue
+
+                    if state != 0:
+                        continue
 
                     args = args.rstrip()
                     typelessargs = ''
