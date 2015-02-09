@@ -147,10 +147,11 @@ for filename in g_files:
                         realmethodname = ''
                         args = ''
 
-
-                    splitline = line[len('virtual '):].split()
+                    splitline = line.split()
                     for token in splitline:
                         if not token:
+                            continue
+                        if token == 'virtual':
                             continue
 
                         if state == 0:  # Return Value
