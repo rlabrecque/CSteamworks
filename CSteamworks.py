@@ -29,6 +29,18 @@ if 'isteamps3overlayrenderer.h' in g_files:
 if 'steamvr.h' in g_files:
     g_files.remove('steamvr.h')
 
+# Skipped irrelevent files
+if 'steam_api_interop.cs' in g_files:
+    g_files.remove('steam_api_interop.cs')
+if 'steam_api_flat.h' in g_files:
+    g_files.remove('steam_api_flat.h')
+if 'steam_api.json' in g_files:
+    g_files.remove('steam_api.json')
+if 'steamvr_interop.cs' in g_files:
+    g_files.remove('steamvr_interop.cs')
+if 'steamvr_flat.h' in g_files:
+    g_files.remove('steamvr_flat.h')
+
 g_files.extend(['isteamgameserverutils.h', 'isteamgameservernetworking.h', 'isteamgameserverhttp.h'])
 
 g_GameServerFilenameDict = {
