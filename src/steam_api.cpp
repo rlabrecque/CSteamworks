@@ -85,6 +85,15 @@ SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote() {
 SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface() {
 	return s_SteamContext.SteamHTMLSurface();
 }
+
+SB_API ISteamInventory *S_CALLTYPE SteamInventory() {
+	return s_SteamContext.SteamInventory();
+}
+
+SB_API ISteamVideo *S_CALLTYPE SteamVideo() {
+	return s_SteamContext.SteamVideo();
+}
+
 #ifdef _PS3
 SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
 	return s_SteamContext.SteamPS3OverlayRender();
@@ -110,6 +119,10 @@ SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats() {
 
 SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
 	return s_SteamGameServerContext.SteamHTTP(); // This should have been named SteamGameServerHTTP, but it's inconsistent for some reason.
+}
+
+SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory() {
+	return s_SteamGameServerContext.SteamInventory(); // This should have been named SteamGameServerInventory, but it's inconsistent for some reason.
 }
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 

@@ -49,6 +49,8 @@ SB_API ISteamAppList *S_CALLTYPE SteamAppList();
 SB_API ISteamMusic *S_CALLTYPE SteamMusic();
 SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote();
 SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface();
+SB_API ISteamInventory *S_CALLTYPE SteamInventory();
+SB_API ISteamVideo *S_CALLTYPE SteamVideo();
 #ifdef _PS3
 SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender();
 #endif // _PS3
@@ -58,6 +60,7 @@ SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils();
 SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
 SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
 SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
+SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory();
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 #endif // CSTEAMWORKS_H
