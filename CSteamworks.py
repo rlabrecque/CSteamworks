@@ -184,6 +184,12 @@ for filename in g_files:
                                 continue
 
                         if state == 2:  # Args
+                            # Strip clang attributes, we really should be doing this with them in a list and looping over them.
+                            if token.startswith('ARRAY_COUNT_D') or token.startswith('ARRAY_COUNT') or token.startswith('OUT_STRUCT') or token.startswith('OUT_ARRAY_CALL') or token.startswith('OUT_ARRAY_COUNT') or token.startswith('BUFFER_COUNT') or token.startswith('OUT_BUFFER_COUNT') or token.startswith('DESC') or token.startswith('OUT_STRING_COUNT'):
+                                if not token.endswith(')'):
+                                    state = 4
+                                continue
+
                             if token.startswith(')'):
                                 state = 3
                             elif token.endswith(')'):  # Edge case like f( void arg) - shouldn't be triggered
@@ -198,6 +204,11 @@ for filename in g_files:
                                 state = 0
                                 break;
                             continue
+
+                        if state == 4:  # ATTRIBS
+                            if token.endswith(')'):
+                                state = 2
+                                continue
 
                     if state != 0:
                         continue
