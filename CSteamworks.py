@@ -41,18 +41,20 @@ if 'steamvr_interop.cs' in g_files:
 if 'steamvr_flat.h' in g_files:
     g_files.remove('steamvr_flat.h')
 
-g_files.extend(['isteamgameserverutils.h', 'isteamgameservernetworking.h', 'isteamgameserverhttp.h'])
+g_files.extend(['isteamgameserverutils.h', 'isteamgameservernetworking.h', 'isteamgameserverhttp.h', 'isteamgameserverinventory.h'])
 
 g_GameServerFilenameDict = {
     'isteamgameserverutils.h': 'isteamutils.h',
     'isteamgameservernetworking.h': 'isteamnetworking.h',
     'isteamgameserverhttp.h': 'isteamhttp.h',
+    'isteamgameserverinventory.h': 'isteaminventory.h',
 }
 
 g_GameServerIFaceDict = {
     'isteamgameserverutils.h': 'ISteamGameServerUtils',
     'isteamgameservernetworking.h': 'ISteamGameServerNetworking',
     'isteamgameserverhttp.h': 'ISteamGameServerHTTP',
+    'isteamgameserverinventory.h': 'ISteamGameServerInventory',
 }
 
 g_TypeDict = {
