@@ -1,4 +1,5 @@
-ifeq ($(STEAM_RUNTIME_TARGET_ARCH), i386)
+STEAM_RUNTIME_TARGET_ARCH := $(shell uname -m)
+ifeq ($(STEAM_RUNTIME_TARGET_ARCH), i686)
 	ARCH := -m32
 	LINKERSEARCHPATH := ../../redistributable_bin/linux32
 else
