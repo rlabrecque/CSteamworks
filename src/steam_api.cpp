@@ -658,4 +658,3 @@ SB_API bool __cdecl Steam_GetAPICallResult2(HSteamPipe hSteamPipe, SteamAPICall_
 #endif
 
 #include "unitybuild.cpp"
-#include "steamvr.cpp"
