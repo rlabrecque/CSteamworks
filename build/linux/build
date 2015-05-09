@@ -1,0 +1,3 @@
+#!/bin/bash
+schroot --chroot steamrt_scout_i386 -- make
+schroot --chroot steamrt_scout_amd64 -- make

@@ -21,7 +21,7 @@ $(OBJDIR)/%.o:  $(CPP_FILES)
 	@echo "Compiling $<"
 
 all: $(OBJ_FILES)
-	$(CXX) $(CPPFLAGS) -Wl,-z,origin '-Wl,-rpath,$$ORIGIN' -L$(LINKERSEARCHPATH) -lsteam_api -shared $^ -o $(OUTFILE)
+	$(CXX) $(CPPFLAGS) -Wl,-z,origin '-Wl,-rpath,$$ORIGIN' -L$(LINKERSEARCHPATH) -shared $^ -lsteam_api -o $(OUTFILE)
 
 clean:
 	rm -rf ./$(STEAM_RUNTIME_TARGET_ARCH)/
