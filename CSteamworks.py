@@ -246,11 +246,12 @@ for filename in g_files:
                             args = args.replace(key, g_TypeDict[key])
 
                     bReturnsCSteamID = False
-                    if returnvalue.strip() == 'CSteamID':  # Can not return a class with C ABI
+                    returnvalue = returnvalue.strip()
+                    if returnvalue == 'CSteamID':  # Can not return a class with C ABI
                         bReturnsCSteamID = True
-                        returnvalue = 'SteamID_t '  # See CPP_HEADER for more details
+                        returnvalue = 'SteamID_t'  # See CPP_HEADER for more details
 
-                    output.append('SB_API ' + returnvalue + 'S_CALLTYPE ' + methodname + '(' + args + ') {')
+                    output.append('SB_API ' + returnvalue + ' S_CALLTYPE ' + methodname + '(' + args + ') {')
                     if bReturnsCSteamID:
                         output.append('\treturn ' + iface[1:] + '()->' + realmethodname + '(' + typelessargs + ').ConvertToUint64();')
                     else:
