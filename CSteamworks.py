@@ -138,7 +138,12 @@ for filename in g_files:
 
             if iface:
                 if line.startswith('#'):
-                    output.append(line.strip() + '')
+                    if line.startswith("#ifdef"):
+                        output.append("#if defined(" + line.split()[1] + ")")
+                    elif line.startswith("#ifndef"):
+                        output.append("#if !defined(" + line.split()[1] + ")")
+                    else:
+                        output.append(line.strip())
                 elif 'virtual' in line or state != 0:
                     if '~' in line:
                         continue
