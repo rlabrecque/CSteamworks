@@ -127,7 +127,7 @@ for filename in g_files:
                     continue
                 elif 'Response' in line:  # We don't have a proper way to call responses yet
                     continue
-                
+
                 iface = line[pos + len('class '):].split()[0]
                 ifacedepth = depth
                 try:
@@ -209,7 +209,7 @@ for filename in g_files:
                         if state == 3:  # ) = 0;
                             if token.endswith(';'):
                                 state = 0
-                                break;
+                                break
                             continue
 
                         if state == 4:  # ATTRIBS
@@ -229,10 +229,10 @@ for filename in g_files:
                             token = token.lstrip('*')
                             if token == '=':
                                 bInDefaultArgs = True
-                                token = argssplitted[i-1].lstrip('*')
+                                token = argssplitted[i - 1].lstrip('*')
 
                             if bInDefaultArgs:
-                                if token.endswith(',') or i == len(argssplitted)-1:
+                                if token.endswith(',') or i == len(argssplitted) - 1:
                                     bInDefaultArgs = False
                                     continue
                                 typelessargs += token
