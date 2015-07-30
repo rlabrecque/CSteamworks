@@ -124,6 +124,10 @@ SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
 SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory() {
 	return s_SteamGameServerContext.SteamInventory(); // This should have been named SteamGameServerInventory, but it's inconsistent for some reason.
 }
+
+SB_API ISteamUGC *SteamGameServerUGC() {
+	return s_SteamGameServerContext.SteamUGC(); // This should have been named SteamGameSteamUGC, but it's inconsistent for some reason.
+}
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 /**********************************************************

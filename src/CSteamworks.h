@@ -61,6 +61,7 @@ SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
 SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
 SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
 SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory();
+SB_API ISteamUGC *SteamGameServerUGC();
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
 #endif // CSTEAMWORKS_H
