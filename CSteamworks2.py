@@ -28,6 +28,11 @@ def main():
     except OSError:
         pass
 
+    with open("wrapper/steam_api_c.h", "w") as header:
+    	header.write(CPP_HEADER)
+    	header.write("#pragma once\n\n")
+    	header.write("#include \"CSteamworks.h\"\n\n")
+
     # steamworksparser.Settings.warn_utf8bom = True
     # steamworksparser.Settings.warn_includeguardname = True
     # steamworksparser.Settings.print_unuseddefines = True
@@ -39,58 +44,62 @@ def main():
             continue
 
         print("File: " + f.name)
-        if f.interfaces:
-            with open("wrapper/" + os.path.splitext(f.name)[0] + ".cpp", "w") as out:
-                out.write(CPP_HEADER)
-                cppfilenames.append(os.path.splitext(f.name)[0] + ".cpp")
+        if not f.interfaces:
+        	continue
+        	
+        with open("wrapper/" + os.path.splitext(f.name)[0] + ".cpp", "w") as out, open ("wrapper/steam_api_c.h", "a") as header:
+            out.write(CPP_HEADER)
+            cppfilenames.append(os.path.splitext(f.name)[0] + ".cpp")
 
-                lastIfBlock = None
-                for i in f.interfaces:
-                    print(" - " + i.name)
-                    for func in i.functions:
-                        if lastIfBlock is not None and lastIfBlock != func.ifstatements:
-                            out.write("#endif\n")
-                            lastIfBlock = None
+            lastIfBlock = None
+            for i in f.interfaces:
+                print(" - " + i.name)
+                for func in i.functions:
+                    if lastIfBlock is not None and lastIfBlock != func.ifstatements:
+                        out.write("#endif\n")
+                        lastIfBlock = None
 
-                        if func.ifstatements and func.ifstatements != lastIfBlock:
-                            out.write("#if " + func.ifstatements + "\n")
-                            lastIfBlock = func.ifstatements
+                    if func.ifstatements and func.ifstatements != lastIfBlock:
+                        out.write("#if " + func.ifstatements + "\n")
+                        lastIfBlock = func.ifstatements
 
-                        args = ""
-                        argnames = ""
-                        for arg in func.args:
-                            argtype = g_TypeDict.get(arg.type, arg.type)
+                    args = ""
+                    argnames = ""
+                    for arg in func.args:
+                        argtype = g_TypeDict.get(arg.type, arg.type)
 
-                            spaceHACK = " "
-                            if argtype.endswith("*") and " " in argtype:
-                                spaceHACK = ""  # TODO: REMOVE THIS HACK
-                            args += argtype + spaceHACK + arg.name
-                            if arg.default:
-                                args += " = " + arg.default
-                            args += ", "
-                            argnames += arg.name + ", "
-                        args = args[:-2]
-                        argnames = argnames[:-2]
+                        spaceHACK = " "
+                        if argtype.endswith("*") and " " in argtype:
+                            spaceHACK = ""  # TODO: REMOVE THIS HACK
+                        args += argtype + spaceHACK + arg.name
+                        if arg.default:
+                            args += " = " + arg.default
+                        args += ", "
+                        argnames += arg.name + ", "
+                    args = args[:-2]
+                    argnames = argnames[:-2]
 
-                        returntype = func.returntype
-                        ConvertToUint64 = ""
-                        if returntype == "CSteamID":
-                            returntype = "SteamID_t"
-                            ConvertToUint64 = ".ConvertToUint64()"
+                    returntype = func.returntype
+                    ConvertToUint64 = ""
+                    if returntype == "CSteamID":
+                        returntype = "SteamID_t"
+                        ConvertToUint64 = ".ConvertToUint64()"
 
-                        # If a function overrides another with the same name but different args, we fix it up here so that it can be properly exposed.
-                        strEntryPoint = i.name + "_" + func.name
-                        if strEntryPoint in entrypoints:
-                            strEntryPoint += "_"
-                        entrypoints.append(strEntryPoint)
+                    # If a function overrides another with the same name but different args, we fix it up here so that it can be properly exposed.
+                    strEntryPoint = i.name + "_" + func.name
+                    if strEntryPoint in entrypoints:
+                        strEntryPoint += "_"
+                    entrypoints.append(strEntryPoint)
 
-                        out.write("SB_API " + returntype + " S_CALLTYPE " + strEntryPoint + "(" + args + ") {\n")
-                        out.write("\treturn " + i.name[1:] + "()->" + func.name + "(" + argnames + ")" + ConvertToUint64 + ";\n")
-                        out.write("}\n")
-                        out.write("\n")
+                    declaration = "SB_API " + returntype + " S_CALLTYPE " + strEntryPoint + "(" + args + ")"
+                    header.write(declaration + ";\n")
+                    out.write(declaration + " {\n")
+                    out.write("\treturn " + i.name[1:] + "()->" + func.name + "(" + argnames + ")" + ConvertToUint64 + ";\n")
+                    out.write("}\n")
+                    out.write("\n")
 
-                if lastIfBlock:
-                    out.write("#endif\n")
+            if lastIfBlock:
+                out.write("#endif\n")
 
     if cppfilenames:
         with open("wrapper/unitybuild.cpp", "w") as out:

@@ -5,8 +5,7 @@
 * Riley Labrecque - 2013-2015 - Public Domain
 *********************************************************/
 
-#ifndef CSTEAMWORKS_H
-#define CSTEAMWORKS_H
+#pragma once
 
 #if defined( _WIN32 )
 __pragma(warning(push))
@@ -18,9 +17,11 @@ __pragma(warning(disable:4996)) // 'strncpy': This function or variable may be u
 #include "isteamgamecoordinator.h"
 #if defined( _WIN32 )
 __pragma(warning(pop))
+#endif
 
+#if defined( _WIN32 ) && CSTEAMWORKS_DLLEXPORT
 #define SB_API extern "C"  __declspec( dllexport )
-#elif defined( GNUC )
+#elif defined( GNUC ) && CSTEAMWORKS_DLLEXPORT
 #define SB_API extern "C" __attribute__ ((visibility ("default")))
 #else
 #define SB_API extern "C"
@@ -63,5 +64,3 @@ SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
 SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory();
 SB_API ISteamUGC *SteamGameServerUGC();
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
-
-#endif // CSTEAMWORKS_H
