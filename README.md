@@ -8,7 +8,7 @@ The primary use case for _CSteamworks_ is to act as a buffer between a scripting
 * License: [MIT](http://www.opensource.org/licenses/mit-license.php)
 * [Github Project](https://github.com/rlabrecque/CSteamworks)
 * [Reporting Issues](https://github.com/rlabrecque/CSteamworks/issues)
-* Currently supports Steamworks SDK v1.34
+* Currently supports Steamworks SDK v1.35
 
 [![Support via Paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=9TH6ELMRD9NYU)
 
@@ -27,5 +27,4 @@ To use _CSteamworks_ you must be a Steamworks developer.
 Limitations
 -----------
 
-* _CSteamworks_ was not intended to be used directly from C therefore it does not provide header files.
 * _CSteamworks_ does not currently support ISteamAppTicket or ISteamGameCoordinator as they do not provide a global interface.
