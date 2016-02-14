@@ -94,12 +94,6 @@ SB_API ISteamVideo *S_CALLTYPE SteamVideo() {
 	return s_SteamContext.SteamVideo();
 }
 
-#ifdef _PS3
-SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender() {
-	return s_SteamContext.SteamPS3OverlayRender();
-}
-#endif // _PS3
-
 // GameServer Accessors:
 SB_API ISteamGameServer *S_CALLTYPE SteamGameServer() {
 	return s_SteamGameServerContext.SteamGameServer();
@@ -175,15 +169,9 @@ SB_API bool S_CALLTYPE InitSafe() {
 
 #else
 
-#if defined(_PS3)
-SB_API bool S_CALLTYPE Init(SteamPS3Params_t *pParams) {
-	return SteamAPI_Init(pParams);
-}
-#else
 SB_API bool S_CALLTYPE Init() {
 	return SteamAPI_Init();
 }
-#endif
 
 //SB_API ISteamUser *S_CALLTYPE SteamUser();
 //SB_API ISteamFriends *S_CALLTYPE SteamFriends();
@@ -203,12 +191,24 @@ SB_API bool S_CALLTYPE Init() {
 //SB_API ISteamMusic *S_CALLTYPE SteamMusic();
 //SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote();
 //SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface();
-#ifdef _PS3
-//SB_API ISteamPS3OverlayRender *S_CALLTYPE SteamPS3OverlayRender();
-#endif
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
 
+
+SB_API void S_CALLTYPE ReleaseCurrentThreadMemory() {
+	SteamAPI_ReleaseCurrentThreadMemory();
+}
+
+
 SB_API void S_CALLTYPE RunCallbacks() {
+	// By default CSteamworks uses the Safe Steam API and manages its own SteamAPIContext rather than using the global singletons.
+	// Therefore we must call SteamController.RunFrame() manually for some reason.
+	// This is a small hack to get the same experience out of SteamAPI_InitSafe that you would get with SteamAPI_Init.
+	// This will need to be removed when Valve fixes this in Steamworks SDK 1.40
+#if VERSION_SAFE_STEAM_API_INTERFACES
+	if(SteamController())
+		SteamController()->RunFrame();
+#endif
+
 	SteamAPI_RunCallbacks();
 }
 

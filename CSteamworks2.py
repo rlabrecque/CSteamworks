@@ -63,6 +63,9 @@ def main():
                         out.write("#if " + func.ifstatements + "\n")
                         lastIfBlock = func.ifstatements
 
+                    if func.private:
+                        continue
+
                     args = ""
                     argnames = ""
                     for arg in func.args:
