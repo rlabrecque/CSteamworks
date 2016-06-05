@@ -2,7 +2,7 @@
 * Only if you have agreed to Valves non-disclosure and/or license
 * agreements only then may you utilize this file under Public Domain.
 *
-* Riley Labrecque - 2013-2015 - Public Domain
+* Riley Labrecque - 2013-2016 - Public Domain
 *********************************************************/
 
 #pragma once
@@ -31,7 +31,8 @@ __pragma(warning(pop))
 // We could slam it directly to uint64, but that doesn't give other wrappers the info they require for autogen.
 typedef uint64 SteamID_t;
 
-#ifdef VERSION_SAFE_STEAM_API_INTERFACES
+#if defined(VERSION_SAFE_STEAM_API_INTERFACES)
+SB_API ISteamClient *S_CALLTYPE SteamClient();
 SB_API ISteamUser *S_CALLTYPE SteamUser();
 SB_API ISteamFriends *S_CALLTYPE SteamFriends();
 SB_API ISteamUtils *S_CALLTYPE SteamUtils();
@@ -53,11 +54,13 @@ SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface();
 SB_API ISteamInventory *S_CALLTYPE SteamInventory();
 SB_API ISteamVideo *S_CALLTYPE SteamVideo();
 
+SB_API ISteamClient *S_CALLTYPE SteamGameServerClient();
 SB_API ISteamGameServer *S_CALLTYPE SteamGameServer();
 SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils();
 SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
 SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
 SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
 SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory();
-SB_API ISteamUGC *SteamGameServerUGC();
+SB_API ISteamUGC *S_CALLTYPE SteamGameServerUGC();
+SB_API ISteamApps *S_CALLTYPE SteamGameServerApps();
 #endif // VERSION_SAFE_STEAM_API_INTERFACES
