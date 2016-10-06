@@ -29,13 +29,13 @@ def main():
         pass
 
     with open("wrapper/steam_api_c.h", "w") as header:
-    	header.write(CPP_HEADER)
-    	header.write("#pragma once\n\n")
-    	header.write("#include \"CSteamworks.h\"\n\n")
+        header.write(CPP_HEADER)
+        header.write("#pragma once\n\n")
+        header.write("#include \"CSteamworks.h\"\n\n")
 
-    # steamworksparser.Settings.warn_utf8bom = True
-    # steamworksparser.Settings.warn_includeguardname = True
-    # steamworksparser.Settings.print_unuseddefines = True
+    #steamworksparser.Settings.warn_utf8bom = True
+    #steamworksparser.Settings.warn_includeguardname = True
+    #steamworksparser.Settings.print_unuseddefines = True
     steamworksparser.Settings.fake_gameserver_interfaces = True
     parser = steamworksparser.parse("steam/")
 
@@ -45,8 +45,8 @@ def main():
 
         print("File: " + f.name)
         if not f.interfaces:
-        	continue
-        	
+            continue
+
         with open("wrapper/" + os.path.splitext(f.name)[0] + ".cpp", "w") as out, open ("wrapper/steam_api_c.h", "a") as header:
             out.write(CPP_HEADER)
             cppfilenames.append(os.path.splitext(f.name)[0] + ".cpp")
@@ -66,9 +66,15 @@ def main():
                     if func.private:
                         continue
 
-                    args = ""
-                    argnames = ""
-                    for arg in func.args:
+                    def create_arg_string(arg):
+                        argtype = g_TypeDict.get(arg.type, arg.type)
+                        space = "" if argtype.endswith("*") and " " in argtype else " "
+                        defaultarg = "" if not arg.default else " = " + arg.default
+                        return argtype + space + arg.name + defaultarg
+
+                    args = ", ".join([create_arg_string(arg) for arg in func.args])
+                    argnames = ", ".join([arg.name for arg in func.args])
+                    '''for arg in func.args:
                         argtype = g_TypeDict.get(arg.type, arg.type)
 
                         spaceHACK = " "
@@ -78,9 +84,7 @@ def main():
                         if arg.default:
                             args += " = " + arg.default
                         args += ", "
-                        argnames += arg.name + ", "
-                    args = args[:-2]
-                    argnames = argnames[:-2]
+                    args = args[:-2]'''
 
                     returntype = func.returntype
                     ConvertToUint64 = ""
