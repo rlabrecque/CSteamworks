@@ -1,168 +1,22 @@
 /**********************************************************
- * Only if you have agreed to Valves non-disclosure and/or license
- * agreements only then may you utilize this file under Public Domain.
+ * Only after agreeing to Valves non-disclosure and/or license
+ * agreements may you utilize this file under Public Domain.
  *
  * Riley Labrecque - 2013-2016 - Public Domain
  *********************************************************/
 
 #include "CSteamworks.h"
 
-#if defined(VERSION_SAFE_STEAM_API_INTERFACES)
-static CSteamAPIContext s_SteamContext;
-static CSteamGameServerAPIContext s_SteamGameServerContext;
-
-// These accessors make working with InitSafe() and CSteamAPIContext much easier by providing
-// the same interface API that using the regular SteamAPI_Init() provides.
-// SteamAPI Accessors:
-SB_API ISteamClient *S_CALLTYPE SteamClient() {
-	return s_SteamContext.SteamClient();
-}
-
-SB_API ISteamUser *S_CALLTYPE SteamUser() {
-	return s_SteamContext.SteamUser();
-}
-
-SB_API ISteamFriends *S_CALLTYPE SteamFriends() {
-	return s_SteamContext.SteamFriends();
-}
-
-SB_API ISteamUtils *S_CALLTYPE SteamUtils() {
-	return s_SteamContext.SteamUtils();
-}
-
-SB_API ISteamMatchmaking *S_CALLTYPE SteamMatchmaking() {
-	return s_SteamContext.SteamMatchmaking();
-}
-
-SB_API ISteamUserStats *S_CALLTYPE SteamUserStats() {
-	return s_SteamContext.SteamUserStats();
-}
-
-SB_API ISteamApps *S_CALLTYPE SteamApps() {
-	return s_SteamContext.SteamApps();
-}
-
-SB_API ISteamNetworking *S_CALLTYPE SteamNetworking() {
-	return s_SteamContext.SteamNetworking();
-}
-
-SB_API ISteamMatchmakingServers *S_CALLTYPE SteamMatchmakingServers() {
-	return s_SteamContext.SteamMatchmakingServers();
-}
-
-SB_API ISteamRemoteStorage *S_CALLTYPE SteamRemoteStorage() {
-	return s_SteamContext.SteamRemoteStorage();
-}
-
-SB_API ISteamScreenshots *S_CALLTYPE SteamScreenshots() {
-	return s_SteamContext.SteamScreenshots();
-}
-
-SB_API ISteamHTTP *S_CALLTYPE SteamHTTP() {
-	return s_SteamContext.SteamHTTP();
-}
-
-SB_API ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages() {
-	return s_SteamContext.SteamUnifiedMessages();
-}
-
-SB_API ISteamController *S_CALLTYPE SteamController() {
-	return s_SteamContext.SteamController();
-}
-
-SB_API ISteamUGC *S_CALLTYPE SteamUGC() {
-	return s_SteamContext.SteamUGC();
-}
-
-SB_API ISteamAppList *S_CALLTYPE SteamAppList() {
-	return s_SteamContext.SteamAppList();
-}
-
-SB_API ISteamMusic *S_CALLTYPE SteamMusic() {
-	return s_SteamContext.SteamMusic();
-}
-
-SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote() {
-	return s_SteamContext.SteamMusicRemote();
-}
-
-SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface() {
-	return s_SteamContext.SteamHTMLSurface();
-}
-
-SB_API ISteamInventory *S_CALLTYPE SteamInventory() {
-	return s_SteamContext.SteamInventory();
-}
-
-SB_API ISteamVideo *S_CALLTYPE SteamVideo() {
-	return s_SteamContext.SteamVideo();
-}
-
-// GameServer Accessors:
-SB_API ISteamClient *S_CALLTYPE SteamGameServerClient() {
-	return s_SteamGameServerContext.SteamClient();
-}
-
-SB_API ISteamGameServer *S_CALLTYPE SteamGameServer() {
-	return s_SteamGameServerContext.SteamGameServer();
-}
-
-SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils() {
-	return s_SteamGameServerContext.SteamGameServerUtils();
-}
-
-SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking() {
-	return s_SteamGameServerContext.SteamGameServerNetworking();
-}
-
-SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats() {
-	return s_SteamGameServerContext.SteamGameServerStats();
-}
-
-SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP() {
-	return s_SteamGameServerContext.SteamHTTP();
-}
-
-SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory() {
-	return s_SteamGameServerContext.SteamInventory();
-}
-
-SB_API ISteamUGC *S_CALLTYPE SteamGameServerUGC() {
-	return s_SteamGameServerContext.SteamUGC();
-}
-
-SB_API ISteamApps *S_CALLTYPE SteamGameServerApps() {
-	return s_SteamGameServerContext.SteamApps();
-}
-#endif // defined(VERSION_SAFE_STEAM_API_INTERFACES)
-
 /**********************************************************
  * steam_api.h
  *********************************************************/
-
 // Steam API setup & shutdown
-#if defined(VERSION_SAFE_STEAM_API_INTERFACES)
-SB_API bool S_CALLTYPE InitSafe() {
-	bool ret = SteamAPI_InitSafe();
-
-	if (ret) {
-		ret = s_SteamContext.Init();
-	}
-
-	return ret;
-}
-#else // defined(VERSION_SAFE_STEAM_API_INTERFACES)
 SB_API bool S_CALLTYPE Init() {
 	return SteamAPI_Init();
 }
-#endif // defined(VERSION_SAFE_STEAM_API_INTERFACES)
 
 SB_API void S_CALLTYPE Shutdown() {
 	SteamAPI_Shutdown();
-
-#if defined(VERSION_SAFE_STEAM_API_INTERFACES)
-	s_SteamContext.Clear();
-#endif // defined(VERSION_SAFE_STEAM_API_INTERFACES)
 }
 
 SB_API bool S_CALLTYPE RestartAppIfNecessary(uint32 unOwnAppID) {
@@ -241,7 +95,7 @@ SB_API HSteamUser S_CALLTYPE GetHSteamUser_() {
 
 /*
 * Unresolved External link error :(
-SB_API bool S_CALLTYPE SteamInternal_Init_() {
+SB_API void * S_CALLTYPE SteamInternal_ContextInit_(void *pContextInitData) {
 	return SteamInternal_Init();
 }
 */
@@ -261,26 +115,25 @@ SB_API void S_CALLTYPE SetBreakpadAppID(uint32 unAppID) {
 #endif // defined(USE_BREAKPAD_HANDLER) || defined(STEAM_API_EXPORTS)
 
 /**********************************************************
+ * SteamAPI Accessors
+ *********************************************************/
+SB_API ISteamClient *S_CALLTYPE SteamClient_() {
+	return SteamClient();
+}
+
+SB_API ISteamClient *S_CALLTYPE SteamGameServerClient_() {
+	return SteamGameServerClient();
+}
+
+/**********************************************************
  * steam_gameserver.h
  *********************************************************/
 SB_API bool S_CALLTYPE GameServer_Init(uint32 unIP, uint16 usSteamPort, uint16 usGamePort, uint16 usQueryPort, EServerMode eServerMode, const char *pchVersionString) {
-	bool ret = SteamGameServer_Init(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
-	
-#ifdef VERSION_SAFE_STEAM_API_INTERFACES
-	if (ret) {
-		ret = s_SteamGameServerContext.Init();
-	}
-#endif
-
-	return ret;
+	return SteamGameServer_Init(unIP, usSteamPort, usGamePort, usQueryPort, eServerMode, pchVersionString);
 }
 
 SB_API void S_CALLTYPE GameServer_Shutdown() {
 	SteamGameServer_Shutdown();
-
-#ifdef VERSION_SAFE_STEAM_API_INTERFACES
-	s_SteamGameServerContext.Clear();
-#endif
 }
 
 SB_API void S_CALLTYPE GameServer_RunCallbacks() {
@@ -317,7 +170,6 @@ SB_API bool S_CALLTYPE SteamInternal_GameServer_Init_(uint32 unIP, uint16 usPort
 * steamencryptedappticket.h
 * You're probably just better off importing from sdkencryptedappticket.dll directly.
 *********************************************************/
-
 #if 0
 SB_API bool BDecryptTicket(const uint8 *rgubTicketEncrypted, uint32 cubTicketEncrypted, uint8 *rgubTicketDecrypted, uint32 *pcubTicketDecrypted, const uint8 rgubKey[k_nSteamEncryptedAppTicketSymmetricKeyLen], int cubKey) {
 	return SteamEncryptedAppTicket_BDecryptTicket(rgubTicketEncrypted, cubTicketEncrypted, rgubTicketDecrypted, pcubTicketDecrypted, rgubKey, cubKey);

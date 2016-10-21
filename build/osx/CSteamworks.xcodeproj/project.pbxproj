@@ -235,7 +235,6 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					GNUC,
-					VERSION_SAFE_STEAM_API_INTERFACES,
 				);
 				INFOPLIST_FILE = "CSteamworks-Info.plist";
 				INSTALL_PATH = "@rpath";
@@ -275,7 +274,6 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Carbon.framework/Headers/Carbon.h";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					GNUC,
-					VERSION_SAFE_STEAM_API_INTERFACES,
 				);
 				INFOPLIST_FILE = "CSteamworks-Info.plist";
 				INSTALL_PATH = "@rpath";

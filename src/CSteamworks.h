@@ -30,37 +30,3 @@ __pragma(warning(pop))
 // A few functions return CSteamID which can not be done when using extern "C"
 // We could slam it directly to uint64, but that doesn't give other wrappers the info they require for autogen.
 typedef uint64 SteamID_t;
-
-#if defined(VERSION_SAFE_STEAM_API_INTERFACES)
-SB_API ISteamClient *S_CALLTYPE SteamClient();
-SB_API ISteamUser *S_CALLTYPE SteamUser();
-SB_API ISteamFriends *S_CALLTYPE SteamFriends();
-SB_API ISteamUtils *S_CALLTYPE SteamUtils();
-SB_API ISteamMatchmaking *S_CALLTYPE SteamMatchmaking();
-SB_API ISteamUserStats *S_CALLTYPE SteamUserStats();
-SB_API ISteamApps *S_CALLTYPE SteamApps();
-SB_API ISteamNetworking *S_CALLTYPE SteamNetworking();
-SB_API ISteamMatchmakingServers *S_CALLTYPE SteamMatchmakingServers();
-SB_API ISteamRemoteStorage *S_CALLTYPE SteamRemoteStorage();
-SB_API ISteamScreenshots *S_CALLTYPE SteamScreenshots();
-SB_API ISteamHTTP *S_CALLTYPE SteamHTTP();
-SB_API ISteamUnifiedMessages *S_CALLTYPE SteamUnifiedMessages();
-SB_API ISteamController *S_CALLTYPE SteamController();
-SB_API ISteamUGC *S_CALLTYPE SteamUGC();
-SB_API ISteamAppList *S_CALLTYPE SteamAppList();
-SB_API ISteamMusic *S_CALLTYPE SteamMusic();
-SB_API ISteamMusicRemote *S_CALLTYPE SteamMusicRemote();
-SB_API ISteamHTMLSurface *S_CALLTYPE SteamHTMLSurface();
-SB_API ISteamInventory *S_CALLTYPE SteamInventory();
-SB_API ISteamVideo *S_CALLTYPE SteamVideo();
-
-SB_API ISteamClient *S_CALLTYPE SteamGameServerClient();
-SB_API ISteamGameServer *S_CALLTYPE SteamGameServer();
-SB_API ISteamUtils *S_CALLTYPE SteamGameServerUtils();
-SB_API ISteamNetworking *S_CALLTYPE SteamGameServerNetworking();
-SB_API ISteamGameServerStats *S_CALLTYPE SteamGameServerStats();
-SB_API ISteamHTTP *S_CALLTYPE SteamGameServerHTTP();
-SB_API ISteamInventory *S_CALLTYPE SteamGameServerInventory();
-SB_API ISteamUGC *S_CALLTYPE SteamGameServerUGC();
-SB_API ISteamApps *S_CALLTYPE SteamGameServerApps();
-#endif // VERSION_SAFE_STEAM_API_INTERFACES
