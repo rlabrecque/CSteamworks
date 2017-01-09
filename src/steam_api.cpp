@@ -2,7 +2,7 @@
  * Only after agreeing to Valves non-disclosure and/or license
  * agreements may you utilize this file under Public Domain.
  *
- * Riley Labrecque - 2013-2016 - Public Domain
+ * Riley Labrecque - 2013-2017 - Public Domain
  *********************************************************/
 
 #include "CSteamworks.h"
