@@ -21,7 +21,6 @@ g_TypeDict = {
 
 
 def main():
-    entrypoints = []
     cppfilenames = []
 
     try:
@@ -55,7 +54,10 @@ def main():
             lastIfBlock = None
             for i in f.interfaces:
                 print(" - " + i.name)
-                for func in i.functions:
+                for name, func in i.functions.items():
+                    if name != func.name:
+                        continue
+
                     if lastIfBlock is not None and lastIfBlock != func.ifstatements:
                         out.write("#endif\n")
                         lastIfBlock = None
@@ -93,16 +95,12 @@ def main():
                         returntype = "SteamID_t"
                         ConvertToUint64 = ".ConvertToUint64()"
 
-                    # If a function overrides another with the same name but different args, we fix it up here so that it can be properly exposed.
                     strEntryPoint = i.name + "_" + func.name
-                    if strEntryPoint in entrypoints:
-                        strEntryPoint += "_"
-                    entrypoints.append(strEntryPoint)
 
                     declaration = "SB_API " + returntype + " S_CALLTYPE " + strEntryPoint + "(" + args + ")"
                     header.write(declaration + ";\n")
                     out.write(declaration + " {\n")
-                    out.write("\treturn " + i.name[1:] + "()->" + func.name + "(" + argnames + ")" + ConvertToUint64 + ";\n")
+                    out.write("\treturn " + i.name[1:] + "()->" + func.originalName + "(" + argnames + ")" + ConvertToUint64 + ";\n")
                     out.write("}\n")
                     out.write("\n")
 
