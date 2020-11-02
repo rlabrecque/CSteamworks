@@ -1,5 +1,7 @@
 CSteamworks
-=======
+===========
+
+**Note:** This project is deprecated as Valve now prodives a C ABI wrapper built into steam_api.dll.
 
 _CSteamworks_ is a C ABI Wrapper for Valve's Steamworks API. It relys heavily on automatic code generation.
 The primary use case for _CSteamworks_ is to act as a buffer between a scripting language and the Steamworks C++ Interfaces.
